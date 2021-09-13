@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+*{
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--gray) !important;
+    height: 100vh;
+    box-sizing: border-box;
+}
+
+:root {
+    --gray: #171515;
+    --light-gray: #221F1F;
+}
+
+.login-form {
+    background-color: var(--light-gray);
+    border: none;
+    border-radius: 30px;
+    padding: 30px 50px;
+}
+
+.page-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.image-col {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.epn-logo {
+    width: 283.68px;
+    height: 314.6px;
+}
+
+.custom-input, .custom-input:focus {
+    background-color: var(--gray);
+    border: none;
+    border-radius: 16px;
+    width: 501.84px;
+    height: 54.25px;
+}
+
+.button {
+    background-color: #7879F1;
+    text-align: center;
+    margin: 20px;
+    width: 120.49px;
+    height: 36.67px;
+    border-radius: 16px;
+}
+
+.actions-container {
+    text-align: center;
+}
+
+.remember-container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+a {
+    text-decoration: none !important;
+    color: inherit !important;
+}

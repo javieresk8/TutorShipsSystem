@@ -1,0 +1,41 @@
+:root {
+    --gray: #171515;
+    --light-gray: #221F1F;
+    --purple: #7879F1
+}
+
+.custom-nav{
+    background-color: var(--light-gray);
+    padding: 20px 100px !important;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav__image {
+    height: 50px;
+}
+
+.card.button {
+    display: flex;
+    justify-content: center;
+    min-height: 200px;
+    min-width: 400px;
+    font-size: 30px;
+    background-color: var(--purple);
+    transition: ease-in-out 0.3s;
+}
+
+.card.button:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+.container-1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: calc(100vh - 100px);
+    min-width: 70%;
+}

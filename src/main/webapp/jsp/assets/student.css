@@ -1,0 +1,16 @@
+.tutorship-card {
+    background-color: var(--light-gray);
+    padding: 20px 50px;
+    border-radius: 16px;
+    font-size: 20px;
+    tab-size: 4;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.tutorship-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}

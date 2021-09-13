@@ -10,13 +10,17 @@ import com.model.jpa.JPADAOFactory;
 public class mainTest {
 
 	public static void main(String[] args) {
-		User user = new User();
-		user.setApellido("erazo");
-		Admin ad= new Admin();
 		
+		//EclipseLink genera toda la base de datos cuando hacemos 
+		// la primera insercion de cualquier cosa 
+		//
+		//User user = new User();
+		//user.setApellido("erazo");
+		User ad= new Admin();
+		Admin ad2 = new Admin();
 		
-		DAOFactory.getFactory().getUserDAO().create(user);
-		System.out.println("Se inserto:" + user);
+		DAOFactory.getFactory().getUserDAO().create(ad2);
+		System.out.println("Se inserto:" + ad2);
 	}
 		
 

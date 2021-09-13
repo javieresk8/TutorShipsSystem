@@ -15,14 +15,14 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "Teacher")
-public class Teacher implements Serializable{
+public class Teacher extends User  implements Serializable{
 	
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 
-	@Id
+	//@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id_teacher")
 	private Integer idTeacher;
@@ -31,11 +31,12 @@ public class Teacher implements Serializable{
 	//JoinColum indica el nombre de la clave foranea que va a tener la tabla
 	
 	@ManyToOne
-	@JoinColumn(name="departamento")
+	@JoinColumn(name="id_departamento")
 	private Department departamento;
 	
+	//Crea clave foranea en Schedule
 	@OneToMany
-	@JoinColumn(name="schedule")
+	@JoinColumn(name="id_teacher")
 	private List<Schedule> schedule;
 	
 	

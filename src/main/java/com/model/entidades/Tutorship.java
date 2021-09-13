@@ -25,15 +25,15 @@ public class Tutorship implements Serializable{
 	private Integer idTutorship;
 	
 	@OneToOne
-	@JoinColumn
+	@JoinColumn(name="id_schedule")
 	private Schedule schedule;
 	
 	@OneToOne
-	@JoinColumn
+	@JoinColumn(name="id_student")
 	private Student student;
 	
 	@OneToOne
-	@JoinColumn
+	@JoinColumn(name="id_teacher")
 	private Teacher teacher;
 	
 	//Constructors

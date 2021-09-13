@@ -1,50 +1,57 @@
 package com.model.entidades;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "Teacher")
-public class Teacher extends User implements Serializable{
+public class Teacher implements Serializable{
 	
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 
-	
+	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id_teacher")
 	private Integer idTeacher;
 	
 	//Muchos profesores pertenecen a un departamento
 	//JoinColum indica el nombre de la clave foranea que va a tener la tabla
+	
 	@ManyToOne
 	@JoinColumn(name="departamento")
 	private Department departamento;
 	
-	@Column(name="schedule")
-	private Schedule schedule;
+	@OneToMany
+	@JoinColumn(name="schedule")
+	private List<Schedule> schedule;
 	
-	@ManyToOne
-	@JoinColumn(name="departamento")
-	private User user;
 	
 	//Constructors
 	public Teacher() {
 
 	}
-	public Teacher( Department departamento, Schedule schedule) {
+	
+
+
+	public Teacher(Integer idTeacher, Department departamento, List<Schedule> schedule) {
+		this.idTeacher = idTeacher;
 		this.departamento = departamento;
 		this.schedule = schedule;
 	}
+
 	
 	
 	//Getters and Setters
@@ -60,14 +67,20 @@ public class Teacher extends User implements Serializable{
 	public void setDepartamento(Department departamento) {
 		this.departamento = departamento;
 	}
-	public Schedule getSchedule() {
+	
+	
+	public List<Schedule> getSchedule() {
 		return schedule;
 	}
-	public void setSchedule(Schedule schedule) {
+
+
+
+	public void setSchedule(List<Schedule> schedule) {
 		this.schedule = schedule;
 	}
-	
-	
+
+
+
 	@Override
 	public int hashCode() {
 		int hash = 0;

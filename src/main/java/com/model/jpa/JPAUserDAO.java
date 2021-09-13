@@ -16,7 +16,7 @@ public class JPAUserDAO extends JPAGenericDAO<User, Integer> implements UserDAO{
 	}
 
 	@Override
-	public boolean autorizar(String cedula, String clave, String rol) {
+	public boolean authorize(String cedula, String clave, String rol) {
 		String sentenceJPQL = "SELECT e FROM User e WHERE e.cedula = :param_cedula AND e.clave = :param_clave AND e.rol = :param_rol";
 		Query query =  em.createQuery(sentenceJPQL);
 		query.setParameter("param_cedula", cedula);

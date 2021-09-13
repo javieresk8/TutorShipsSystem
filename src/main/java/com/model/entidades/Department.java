@@ -2,6 +2,15 @@ package com.model.entidades;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="Department")
 public class Department implements Serializable{
 
 	/**
@@ -9,7 +18,12 @@ public class Department implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="id_department")
 	private int idDepartment;
+	
+	@Column(name="nombreDepar")
 	private String nombreDepartamento;
 	
 	//Constructors

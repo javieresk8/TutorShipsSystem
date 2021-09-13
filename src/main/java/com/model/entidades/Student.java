@@ -20,18 +20,14 @@ public class Student implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id_student")
-	private int idStudent;
+	private Integer idStudent;
 	
 	
-
+	//Constructors
 	public Student() {
 
 	}
 
-	public Student(int idStudent) {
-		super();
-		this.idStudent = idStudent;
-	}
 
 	public int getIdStudent() {
 		return idStudent;
@@ -40,6 +36,34 @@ public class Student implements Serializable{
 	public void setIdStudent(int idStudent) {
 		this.idStudent = idStudent;
 	}
+	
+	@Override
+	public int hashCode() {
+		int hash = 0;
+		hash += (idStudent != null ? idStudent.hashCode() : 0);
+		return hash;
+	}
+
+	@Override
+	public boolean equals(Object object) {
+		if (!(object instanceof Student)) {
+			return false;
+		}
+		Student other = (Student) object;
+		if ((this.idStudent == null && other.idStudent != null)
+				|| (this.idStudent != null && !this.idStudent.equals(other.idStudent))) {
+			return false;
+		}
+		return true;
+	}
+
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return super.toString();
+	}
+	
+	
 
 
 }

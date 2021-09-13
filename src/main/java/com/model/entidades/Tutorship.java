@@ -20,7 +20,7 @@ public class Tutorship implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id_tutorship")
-	private int idTutorship;
+	private Integer idTutorship;
 	
 	@Column(name="schedule")
 	private Schedule schedule;
@@ -36,9 +36,7 @@ public class Tutorship implements Serializable{
 
 	}
 	
-	public Tutorship(int idTutorship, Schedule schedule, Student student, Teacher teacher) {
-		super();
-		this.idTutorship = idTutorship;
+	public Tutorship(Schedule schedule, Student student, Teacher teacher) {
 		this.schedule = schedule;
 		this.student = student;
 		this.teacher = teacher;
@@ -79,6 +77,31 @@ public class Tutorship implements Serializable{
 	}
 
 
+	@Override
+	public int hashCode() {
+		int hash = 0;
+		hash += (idTutorship != null ? idTutorship.hashCode() : 0);
+		return hash;
+	}
+
+	@Override
+	public boolean equals(Object object) {
+		if (!(object instanceof Tutorship)) {
+			return false;
+		}
+		Tutorship other = (Tutorship) object;
+		if ((this.idTutorship == null && other.idTutorship != null)
+				|| (this.idTutorship != null && !this.idTutorship.equals(other.idTutorship))) {
+			return false;
+		}
+		return true;
+	}
+
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return super.toString();
+	}
 	
 	
 	

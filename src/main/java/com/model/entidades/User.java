@@ -21,7 +21,7 @@ public class User implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id_user")
-	private int idUsuario;
+	private Integer idUsuario;
 	
 	@Column(name="nombre")
 	private String nombre;
@@ -44,8 +44,7 @@ public class User implements Serializable{
 		
 	}
 	
-	public User(int idUsuario, String nombre, String apellido, String cedula, String rol, String clave) {
-		this.idUsuario = idUsuario;
+	public User(String nombre, String apellido, String cedula, String rol, String clave) {
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.cedula = cedula;
@@ -95,14 +94,22 @@ public class User implements Serializable{
 
 	@Override
 	public int hashCode() {
-		// TODO Auto-generated method stub
-		return super.hashCode();
+		int hash = 0;
+		hash += (idUsuario != null ? idUsuario.hashCode() : 0);
+		return hash;
 	}
 
 	@Override
-	public boolean equals(Object obj) {
-		// TODO Auto-generated method stub
-		return super.equals(obj);
+	public boolean equals(Object object) {
+		if (!(object instanceof User)) {
+			return false;
+		}
+		User other = (User) object;
+		if ((this.idUsuario == null && other.idUsuario != null)
+				|| (this.idUsuario != null && !this.idUsuario.equals(other.idUsuario))) {
+			return false;
+		}
+		return true;
 	}
 
 	@Override

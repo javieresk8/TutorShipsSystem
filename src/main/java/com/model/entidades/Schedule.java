@@ -21,7 +21,7 @@ public class Schedule implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id_schedule")
-	private int idSchedule;
+	private Integer idSchedule;
 	
 	@Column(name="dia")
 	private String dia;
@@ -38,9 +38,7 @@ public class Schedule implements Serializable{
 
 	}
 
-	public Schedule(int idSchedule, String dia, String horaFin, String horaInicio) {
-		super();
-		this.idSchedule = idSchedule;
+	public Schedule( String dia, String horaFin, String horaInicio) {
 		this.dia = dia;
 		this.horaFin = horaFin;
 		this.horaInicio = horaInicio;
@@ -80,7 +78,31 @@ public class Schedule implements Serializable{
 	}
 	
 	
+	@Override
+	public int hashCode() {
+		int hash = 0;
+		hash += (idSchedule != null ? idSchedule.hashCode() : 0);
+		return hash;
+	}
 
+	@Override
+	public boolean equals(Object object) {
+		if (!(object instanceof Schedule)) {
+			return false;
+		}
+		Schedule other = (Schedule) object;
+		if ((this.idSchedule == null && other.idSchedule != null)
+				|| (this.idSchedule != null && !this.idSchedule.equals(other.idSchedule))) {
+			return false;
+		}
+		return true;
+	}
+
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return super.toString();
+	}
 	
 	
 	

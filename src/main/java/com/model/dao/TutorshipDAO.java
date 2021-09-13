@@ -1,5 +1,7 @@
 package com.model.dao;
 
-public interface TutorshipDAO {
+import com.model.entidades.Tutorship;
+
+public interface TutorshipDAO extends GenericDAO<Tutorship, Integer>{
 
 }

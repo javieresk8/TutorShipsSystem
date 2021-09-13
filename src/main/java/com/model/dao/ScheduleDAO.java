@@ -1,5 +1,7 @@
 package com.model.dao;
 
-public interface ScheduleDAO {
+import com.model.entidades.Schedule;
+
+public interface ScheduleDAO extends GenericDAO<Schedule, Integer>{
 
 }

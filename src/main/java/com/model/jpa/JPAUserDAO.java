@@ -1,5 +1,7 @@
 package com.model.jpa;
 
+import java.util.List;
+
 import javax.persistence.Query;
 
 import com.model.dao.UserDAO;
@@ -30,6 +32,12 @@ public class JPAUserDAO extends JPAGenericDAO<User, Integer> implements UserDAO{
 			return true;
 		}
 		return false;		
+	}
+
+	@Override
+	public List<User> getUsers() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

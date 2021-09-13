@@ -6,21 +6,20 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "Teacher")
-public class Teacher implements Serializable{
+public class Teacher extends User implements Serializable{
 	
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 
-	@Id
+	
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id_teacher")
 	private Integer idTeacher;
@@ -34,6 +33,9 @@ public class Teacher implements Serializable{
 	@Column(name="schedule")
 	private Schedule schedule;
 	
+	@ManyToOne
+	@JoinColumn(name="departamento")
+	private User user;
 	
 	//Constructors
 	public Teacher() {

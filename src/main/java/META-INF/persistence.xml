@@ -7,6 +7,7 @@
 		<class>com.model.entidades.Student</class>
 		<class>com.model.entidades.Teacher</class>
 		<class>com.model.entidades.Tutorship</class>
+		<class>com.model.entidades.Admin</class>
 		<properties>
 			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/tutorships"/>
 			<property name="javax.persistence.jdbc.user" value="root"/>

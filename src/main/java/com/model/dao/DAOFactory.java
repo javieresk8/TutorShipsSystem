@@ -20,6 +20,7 @@ public abstract class DAOFactory {
 	public abstract StudentDAO getStudentDAO();
 	public abstract TeacherDAO getTeacherDAO();
 	public abstract TutorshipDAO getTutorshipDAO();
+	public abstract AdminDAO getAdminDAO();
 
 	
 	

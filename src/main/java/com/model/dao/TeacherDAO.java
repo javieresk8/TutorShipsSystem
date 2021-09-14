@@ -1,5 +1,7 @@
 package com.model.dao;
 
-public interface TeacherDAO {
+import com.model.entidades.Teacher;
+
+public interface TeacherDAO extends GenericDAO<Teacher, Integer>{
 
 }

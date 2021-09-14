@@ -10,8 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-//@Table(name="Student")
-public class Student extends User implements Serializable{
+//@Table(name="Admin")
+public class  Admin extends User implements Serializable{
 	
 	/**
 	 * 
@@ -20,50 +20,45 @@ public class Student extends User implements Serializable{
 	
 	
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="id_student")
-	private Integer idStudent;
+	@Column(name="id_admin")
+	private Integer idAdmin;
 	
 	
-	//Constructors
-	public Student() {
+	public Admin() {
 
-	}
-	
-	
-	
-
-
-	public Student(Integer idStudent) {
-		this.idStudent = idStudent;
 	}
 
 
-
-
-
-	public int getIdStudent() {
-		return idStudent;
+	public Admin(Integer idAdmin) {
+		this.idAdmin = idAdmin;
 	}
 
-	public void setIdStudent(int idStudent) {
-		this.idStudent = idStudent;
+
+	public Integer getIdAdmin() {
+		return idAdmin;
+	}
+
+
+	public void setIdAdmin(Integer idAdmin) {
+		this.idAdmin = idAdmin;
 	}
 	
+	//Getters and setters 
 	@Override
 	public int hashCode() {
 		int hash = 0;
-		hash += (idStudent != null ? idStudent.hashCode() : 0);
+		hash += (idAdmin != null ? idAdmin.hashCode() : 0);
 		return hash;
 	}
 
 	@Override
 	public boolean equals(Object object) {
-		if (!(object instanceof Student)) {
+		if (!(object instanceof Admin)) {
 			return false;
 		}
-		Student other = (Student) object;
-		if ((this.idStudent == null && other.idStudent != null)
-				|| (this.idStudent != null && !this.idStudent.equals(other.idStudent))) {
+		Admin other = (Admin) object;
+		if ((this.idAdmin == null && other.idAdmin != null)
+				|| (this.idAdmin != null && !this.idAdmin.equals(other.idAdmin))) {
 			return false;
 		}
 		return true;
@@ -76,6 +71,7 @@ public class Student extends User implements Serializable{
 	}
 	
 	
-
+	
+	
 
 }

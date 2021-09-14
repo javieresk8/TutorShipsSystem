@@ -1,5 +1,6 @@
 package com.model.jpa;
 
+import com.model.dao.AdminDAO;
 import com.model.dao.DAOFactory;
 import com.model.dao.DepartmentDAO;
 import com.model.dao.ScheduleDAO;
@@ -39,6 +40,11 @@ public class JPADAOFactory extends DAOFactory{
 	@Override
 	public TutorshipDAO getTutorshipDAO() {
 		return new JPATutorshipDAO();
+	}
+
+	@Override
+	public AdminDAO getAdminDAO() {
+		return new JPAAdminDAO();
 	}
 	
 	

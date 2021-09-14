@@ -1,5 +1,7 @@
 package com.model.dao;
 
-public interface StudentDAO {
+import com.model.entidades.Student;
+
+public interface StudentDAO extends GenericDAO<Student, Integer>{
 
 }

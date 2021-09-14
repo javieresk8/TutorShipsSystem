@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -22,13 +24,16 @@ public class Tutorship implements Serializable{
 	@Column(name="id_tutorship")
 	private Integer idTutorship;
 	
-	@Column(name="schedule")
+	@OneToOne
+	@JoinColumn(name="id_schedule")
 	private Schedule schedule;
 	
-	@Column(name="student")
+	@OneToOne
+	@JoinColumn(name="id_student")
 	private Student student;
 	
-	@Column(name="teacher")
+	@OneToOne
+	@JoinColumn(name="id_teacher")
 	private Teacher teacher;
 	
 	//Constructors

@@ -11,7 +11,7 @@
     <div class="container page-container">
         <div class="row">
             <div class="col image-col">
-                <img class="epn-logo" alt="logo" src="assets/epn-logo.png" />
+                <img class="epn-logo" alt="logo" src="http://localhost:8080/FinalProject_AppWeb/jsp/assets/epn-logo.png" />
             </div>
             <div class="col-8">
                 <div class="card login-form text-white">

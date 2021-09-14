@@ -21,7 +21,7 @@
 
 <body class="text-white">
     <nav class="custom-nav">
-        <img class="nav__image" alt="epn-logo" src="./assets/epn-logo.png" />
+        <img class="nav__image" alt="epn-logo" src="http://localhost:8080/FinalProject_AppWeb/jsp/assets/epn-logo.png" />
         <p class="fs-3">Administrator</p>
         <a class="badge badge-primary" href="./login.html">Logout</a>
     </nav>

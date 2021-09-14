@@ -1,11 +1,13 @@
 package test;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.model.dao.DAOFactory;
 import com.model.dao.GenericDAO;
 import com.model.entidades.Admin;
 import com.model.entidades.Department;
+import com.model.entidades.Schedule;
 import com.model.entidades.Student;
 import com.model.entidades.Teacher;
 import com.model.entidades.User;
@@ -142,7 +144,7 @@ public class mainTest {
 //		ad2.setIdUsuario(2);
 //		DAOFactory.getFactory().getUserDAO().update(ad2);
 		
-		
+		//Actualizar un teacher
 //		//ERROR: Cuando el valor de rol es nulo
 //		Teacher teacher = new Teacher();
 //		teacher.setApellido("Vargas");
@@ -158,6 +160,66 @@ public class mainTest {
 //		//Seteo el dep en el teacher
 //		teacher.setDepartamento(resultado);
 //		DAOFactory.getFactory().getUserDAO().update(teacher);
+		
+		
+		//*********************************Profesor****************************
+//		
+//		//===============Caso de uso Ver Informacion del profesor===============
+//		//-	El docente podrá actualizar su información personal 
+//		//(nombre, apellido, departamento al que pertenece
+//		Integer id = 4;
+//		Teacher result = DAOFactory.getFactory().getTeacherDAO().getByID(id);
+//		System.out.println("Id: " + result.getIdUsuario() +
+//				" rol: "+ result.getRol()+ 
+//				" apellido: " + result.getApellido() +
+//				" cedula: " + result.getCedula() + 
+//				" nombre: " + result.getNombre()+
+//				" departamento: " + result.getDepartamento().getNombreDepartamento());
+//		
+		//===============Caso de uso Actualizar Informacion del profesor===============
+//		//-	El docente podrá actualizar su información personal 
+//		//(nombre, apellido, departamento al que pertenece
+//		Teacher teacher = new Teacher();
+//		teacher.setIdUsuario(7); //OJO: se debe setear el Id del usuario NO del teacher, caso contrario inserta uno nuevo
+//		teacher.setRol("Teacher");		
+//		teacher.setApellido("Barrera");
+//		teacher.setCedula("09345123123");
+//		teacher.setClave("1234");
+//		teacher.setNombre("Andres");
+//		//Se meustran todos los departamentos disponibles
+//		List<Department> deptos = DAOFactory.getFactory().getDapartmentDAO().getDepartments();
+//		for(Department d: deptos) {
+//			System.out.println("Id: " + d.getIdDepartment()+" Nombre: " + d.getNombreDepartamento());	
+//		}
+////		//Recuperar departamento
+////		Department resultado = DAOFactory.getFactory().getDapartmentDAO().getByID(1);
+////		System.out.println("Resultado:" + resultado.getNombreDepartamento());
+//		//Seteo el dep en el teacher
+//		teacher.setDepartamento(deptos.get(2));
+//		DAOFactory.getFactory().getTeacherDAO().update(teacher);
+		
+		//===============Caso de uso Insertar Horario Profesor===============
+//		Schedule sched = new Schedule();
+//		sched.setDia("12/08/2021");
+//		sched.setHoraFin("15:15");
+//		sched.setHoraInicio("15:00");
+//		
+//		Teacher t = new Teacher();
+//		List<Schedule> horarios = new ArrayList<Schedule>();
+//		horarios.add(sched);
+//		t.setSchedule(horarios);
+//		
+//		DAOFactory.getFactory().getScheduleDAO().createWithId(sched, 8);
+//		System.out.println("Se inserto un horario con id de profesor");
+		
+		//===============Caso de uso Listar Horarios Disponibles ===============
+		//DAOFactory.getFactory().getScheduleDAO().get
+		Teacher t = DAOFactory.getFactory().getTeacherDAO().getByID(8);
+		List<Schedule> sch =  t.getSchedule();
+		for (Schedule schedule : sch) {
+			System.out.println("ID: " + schedule.getIdSchedule());
+		}
+		
 		
 	}
 		

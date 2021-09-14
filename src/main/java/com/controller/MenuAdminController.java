@@ -13,32 +13,25 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/MenuAdminController")
 public class MenuAdminController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
+        
     public MenuAdminController() {
-        super();
-        // TODO Auto-generated constructor stub
+  
     }
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		presentar(request, response);
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		presentar(request, response);
 	}
 	
 	private void presentar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String url = "/jsp/viewMenuAdmin";
+		String url = "/jsp/ViewMenuAdmin.jsp";
+		//request.setAttribute(url, response);
 		getServletContext().getRequestDispatcher(url).forward(request, response);
+		
 	}
 
 }

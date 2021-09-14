@@ -30,18 +30,19 @@ public class LoginController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.sendRedirect("jsp/viewLogin.jsp");
+		response.sendRedirect("jsp/ViewLogin.jsp");
 	}
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String cedula = request.getParameter("cedula");
-		String clave = request.getParameter("clave");
-		String rol = request.getParameter("rol");
+		String cedula = request.getParameter("identityNumber");
+		String clave = request.getParameter("password");
+		String rol = request.getParameter("userType");
 		
-		boolean usuario = DAOFactory.getFactory().getUserDAO().authorize(cedula, clave, rol);
+		//boolean usuario = DAOFactory.getFactory().getUserDAO().authorize(cedula, clave, rol);
 		
+		/*
 		if(usuario==true && rol.equals("Admin")) {
 			HttpSession session = request.getSession();
 			session.setAttribute("usuario Logueado", usuario);
@@ -59,7 +60,31 @@ public class LoginController extends HttpServlet {
 		}
 		else {
 			request.getRequestDispatcher("/LoginController").forward(request, response);
+		}*/
+		
+		
+		if(rol.equals("Administrative")) {
+			//HttpSession session = request.getSession();
+			//session.setAttribute("usuario Logueado", usuario);
+			request.getRequestDispatcher("/MenuAdminController").forward(request, response);
+			//request.getRequestDispatcher("/MenuAdminController").forward(request, response);
 		}
+		else if (rol.equals("Student")) {
+			//HttpSession session = request.getSession();
+			//session.setAttribute("usuario Logueado", usuario);	
+			request.getRequestDispatcher("/MenuStudentController").forward(request, response);
+			//request.getRequestDispatcher("/MenuStudentController").forward(request, response);
+		}
+		else if (rol.equals("Teacher")) {
+			//HttpSession session = request.getSession();
+			//session.setAttribute("usuario Logueado", usuario);			
+			request.getRequestDispatcher("/MenuTeacherController").forward(request, response);
+		}
+		else {
+			request.getRequestDispatcher("/LoginController").forward(request, response);
+		}
+		
+		
 	}
 
 }

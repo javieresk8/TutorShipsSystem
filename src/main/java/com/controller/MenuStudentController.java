@@ -18,27 +18,23 @@ public class MenuStudentController extends HttpServlet {
      * @see HttpServlet#HttpServlet()
      */
     public MenuStudentController() {
-        super();
-        // TODO Auto-generated constructor stub
+        //super();
+ 
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		presentar(request,response);
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		presentar(request, response);
 	}
-	private void presentar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("Entro por post de MenuOpcionesController");
-		String url = "/jsp/viewMenuStudent.jsp";
-		getServletContext().getRequestDispatcher(url).forward(request, response);
+
+	
+	protected void presentar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String url = "/jsp/ViewMenuStudent.jsp";
+		request.getRequestDispatcher(url).forward(request, response);
 	}
 
 

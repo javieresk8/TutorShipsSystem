@@ -13,7 +13,7 @@
             </div>
             <div class="col-8">
                 <div class="card login-form text-white">
-                    <form class="p-2 form" method="GET" action="./administrator.html">
+                    <form class="p-2 form" method="POST" action="../LoginController">
                         <div class="mb-3">
                             <label class="form-label" for="userType">User Type</label>
                             <select class="form-select custom-input text-white-50" name="userType" id="userType">

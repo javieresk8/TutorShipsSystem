@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.Query;
 
 import com.model.dao.UserDAO;
+import com.model.entidades.Department;
 import com.model.entidades.User;
 
 
@@ -44,8 +45,10 @@ public class JPAUserDAO extends JPAGenericDAO<User, Integer> implements UserDAO{
 
 	@Override
 	public List<User> getUsers() {
-		// TODO Auto-generated method stub
-		return null;
+		Query query = this.em.createNamedQuery("getUsers");
+		@SuppressWarnings("unchecked")
+		List<User> users = query.getResultList();
+		return users;
 	}
 
 }

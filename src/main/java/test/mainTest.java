@@ -21,7 +21,7 @@ public class mainTest {
 		//User user = new User();
 		//user.setApellido("erazo");
 		
-//		//===============Insertar Admin===============
+//		//===============Caso de uso Insertar Admin***NUEVO****===============
 //		User ad2 = new Admin();
 //		ad2.setApellido("Erazo");
 //		ad2.setCedula("1234132");
@@ -30,7 +30,7 @@ public class mainTest {
 //		DAOFactory.getFactory().getUserDAO().create(ad2);
 //		System.out.println("Se inserto:" + ad2.toString());
 //		
-//		//===============Insertar Student===============
+//		//===============Caso de uso Insertar Student***NUEVO***===============
 //		User st = new Student();
 //		st.setApellido("ErazoS");
 //		st.setCedula("1234132");
@@ -38,6 +38,20 @@ public class mainTest {
 //		st.setNombre("asdf");
 //		DAOFactory.getFactory().getUserDAO().create(st);
 //		System.out.println("Se inserto:" + st.toString());
+		
+//		//===============Caso de Uso Insertar Profesor***NUEVO***===============
+//		Teacher teacher = new Teacher();
+//		teacher.setApellido("ErazoS");
+//		teacher.setCedula("123413222");
+//		teacher.setClave("sdf");
+//		teacher.setNombre("asdf");
+//		
+//		//Recuperar departamento
+//		Department resultado = DAOFactory.getFactory().getDapartmentDAO().getByID(1);
+//		System.out.println("Resultado:" + resultado.getNombreDepartamento());
+//		//Seteo el dep en el teacher
+//		teacher.setDepartamento(resultado);
+//		DAOFactory.getFactory().getTeacherDAO().create(teacher);
 		
 //		//=============== Caso de Uso Insertar Departamento ===============
 //		Department dep = new Department();
@@ -67,29 +81,12 @@ public class mainTest {
 //		for(Department d: deptosA) {
 //			System.out.println("Id: " + d.getIdDepartment()+" Nombre: " + d.getNombreDepartamento());	
 //		}
-		
-		//=============== Caso de Uso Actualizar Departamento ===============
-		Department dep = new Department();
-		dep.setNombreDepartamento("Limpieza");
-		dep.setIdDepartment(2); //Ingresa  el id del objeto que quieres actualizar
-		DAOFactory.getFactory().getDapartmentDAO().update(dep);
-		
-		
-
-		
-//		//===============Insertar Profesor===============
-//		Teacher teacher = new Teacher();
-//		teacher.setApellido("ErazoS");
-//		teacher.setCedula("123413222");
-//		teacher.setClave("sdf");
-//		teacher.setNombre("asdf");
 //		
-//		//Recuperar departamento
-//		Department resultado = DAOFactory.getFactory().getDapartmentDAO().getByID(1);
-//		System.out.println("Resultado:" + resultado.getNombreDepartamento());
-//		//Seteo el dep en el teacher
-//		teacher.setDepartamento(resultado);
-//		DAOFactory.getFactory().getTeacherDAO().create(teacher);
+//		//=============== Caso de Uso Actualizar Departamento ===============
+//		Department dep = new Department();
+//		dep.setNombreDepartamento("Limpieza");
+//		dep.setIdDepartment(2); //Ingresa  el id del objeto que quieres actualizar
+//		DAOFactory.getFactory().getDapartmentDAO().update(dep);
 		
 		
 //		//===============Caso de uso Login===============
@@ -103,7 +100,64 @@ public class mainTest {
 //		boolean resultadoFal = DAOFactory.getFactory().getUserDAO().authorize("123", "sdf", "Teacher");
 //		System.out.println(resultadoFal);
 		
-
+//		//===============Caso de uso Listar Usuarios===============
+//		List<User> users = DAOFactory.getFactory().getUserDAO().getUsers();
+//		for(User d: users) {
+//			System.out.println("Id: " + d.getIdUsuario() +
+//		" rol: "+ d.getRol()+ 
+//		" apellido: " + d.getApellido() +
+//		" cedula: " + d.getCedula() + 
+//		" nombre: " + d.getNombre());	
+//		}
+		
+//		//===============Caso de uso Eliminar Usuario===============
+//		System.out.println("=========Antes del borrado==================");
+//		List<User> users = DAOFactory.getFactory().getUserDAO().getUsers();
+//		for(User d: users) {
+//			System.out.println("Id: " + d.getIdUsuario() +
+//		" rol: "+ d.getRol()+ 
+//		" apellido: " + d.getApellido() +
+//		" cedula: " + d.getCedula() + 
+//		" nombre: " + d.getNombre());	
+//		
+//		}
+//		DAOFactory.getFactory().getUserDAO().deleteByID(2);
+//		System.out.println("=========Despues del borrado==================");
+//		List<User> users2 = DAOFactory.getFactory().getUserDAO().getUsers();
+//		for(User d: users2) {
+//			System.out.println("Id: " + d.getIdUsuario() +
+//		" rol: "+ d.getRol()+ 
+//		" apellido: " + d.getApellido() +
+//		" cedula: " + d.getCedula() + 
+//		" nombre: " + d.getNombre());	
+//		
+//		}
+		
+		//===============Caso de uso Actualizar Usuario===============
+//		User ad2 = new Admin();
+//		ad2.setApellido("Cardenas");
+//		ad2.setCedula("4563456");
+//		ad2.setClave("abc");
+//		ad2.setNombre("asdf"); 
+//		ad2.setIdUsuario(2);
+//		DAOFactory.getFactory().getUserDAO().update(ad2);
+		
+		
+//		//ERROR: Cuando el valor de rol es nulo
+//		Teacher teacher = new Teacher();
+//		teacher.setApellido("Vargas");
+//		teacher.setCedula("1234");
+//		teacher.setClave("sdf");
+//		teacher.setNombre("asdf");
+//		teacher.setIdUsuario(2);
+//		teacher.setRol("Teacher");
+//		
+//		//Recuperar departamento
+//		Department resultado = DAOFactory.getFactory().getDapartmentDAO().getByID(1);
+//		System.out.println("Resultado:" + resultado.getNombreDepartamento());
+//		//Seteo el dep en el teacher
+//		teacher.setDepartamento(resultado);
+//		DAOFactory.getFactory().getUserDAO().update(teacher);
 		
 	}
 		

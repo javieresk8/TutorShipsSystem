@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.Query;
 
 import com.model.dao.UserDAO;
+import com.model.entidades.Department;
 import com.model.entidades.User;
 
 
@@ -24,8 +25,16 @@ public class JPAUserDAO extends JPAGenericDAO<User, Integer> implements UserDAO{
 		query.setParameter("param_cedula", cedula);
 		query.setParameter("param_clave", clave);
 		query.setParameter("param_rol", rol);
+		User result = null;
+		try {
+			result = (User) query.getSingleResult();
+		} catch (Exception e) {
+			return false;
+//			System.out.println(">>> Error JPAUserDAO:" + e);
+//			System.out.println(">>> Error JPAUserDAO:" + e);
+			
+		}
 		
-		User result = (User) query.getSingleResult();
 		
 		//Validamos los datos
 		if (result != null) {
@@ -36,8 +45,10 @@ public class JPAUserDAO extends JPAGenericDAO<User, Integer> implements UserDAO{
 
 	@Override
 	public List<User> getUsers() {
-		// TODO Auto-generated method stub
-		return null;
+		Query query = this.em.createNamedQuery("getUsers");
+		@SuppressWarnings("unchecked")
+		List<User> users = query.getResultList();
+		return users;
 	}
 
 }

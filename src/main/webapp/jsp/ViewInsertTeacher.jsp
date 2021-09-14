@@ -22,28 +22,28 @@
         <p class="fs-1">Add new teacher</p>
         <form class="p-2 form" method="GET" action="#">
             <div class="card login-form text-white">
-                <div style="display: flex; justify-content: space-between;">
-                    <div class="mb-3">
-                        <label class="form-label" for="identityNumber">Name</label>
-                        <input class="form-control custom-input text-white-50" type="text" id="name" name="name" />
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label" for="identityNumber">Last name</label>
-                        <input class="form-control custom-input text-white-50" type="text" id="lastname"
-                            name="lastname" />
-                    </div>
+                	        <div class="card login-form text-white">
+            <div style="display: flex; justify-content: space-between;">
+                <div class="mb-3">
+                    <label class="form-label" for="identityNumber">Name</label>
+                    <input class="form-control custom-input text-white-50" type="text" id="name"
+                        name="name" />
                 </div>
-                <div style="display: flex; justify-content: space-between;">
-                    <div class="mb-3">
-                        <label class="form-label" for="identityNumber">C.I</label>
-                        <input class="form-control custom-input text-white-50" type="text" id="identityNumber"
-                            name="identityNumber" />
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label" for="identityNumber">Email</label>
-                        <input class="form-control custom-input text-white-50" type="email" id="email" name="email"
-                            pattern=".+@epn.edu.\.com" />
-                    </div>
+                <div class="mb-3">
+                    <label class="form-label" for="identityNumber">Last name</label>
+                    <input class="form-control custom-input text-white-50" type="text" id="lastname"
+                        name="lastname" />
+                </div>
+            </div>
+            <div>
+                    <label class="form-label" for="identityNumber">C.I</label>
+                    <input style="min-width: 100%;" class="form-control custom-input text-white-50" type="text" id="identityNumber"
+                        name="identityNumber" />
+            </div>
+                <div class="mb-3" style="min-width: 100%; margin-top:20px;">
+                    <label class="form-label" for="password">Password</label>
+                    <input style="min-width: 100%;" class="form-control custom-input text-white-50" type="password" id="password"
+                        name="password" />
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="userType">Department</label>
@@ -53,6 +53,7 @@
                         <option value="pumpernickel">department 1</option>
                     </select>
                 </div>
+            </div>
             </div>
             <div class="actions-container" style="margin-top: 50px; display: flex; justify-content: center; gap: 50px;">
                 <a>

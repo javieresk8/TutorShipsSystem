@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,16 +8,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Departments</title>
-    <link rel="stylesheet" href="./assets/index.css">
-    <link rel="stylesheet" href="./assets/administrator.css">
+    <link rel="stylesheet" href="http://localhost:8080/FinalProject_AppWeb/jsp/assets/index.css">
+    <link rel="stylesheet" href="http://localhost:8080/FinalProject_AppWeb/jsp/assets/administrator.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
-    <link rel="stylesheet" href="./assets/list-users.css">
+    <link rel="stylesheet" href="http://localhost:8080/FinalProject_AppWeb/jsp/assets/list-users.css">
     <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
     <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="./assets/student.css">
+    <link rel="stylesheet" href="http://localhost:8080/FinalProject_AppWeb/jsp/assets/student.css">
 </head>
 
 <body class="text-white">
@@ -28,7 +30,7 @@
         <div class="actions-container">
             <div>
                 <p class="fs-1">Scheduled tutorship</p>
-                <a href="./student.html">Menú principal</a>
+                <a href="./student.html">MenÃº principal</a>
             </div>
             <div class="dropdown">
                 <a href="./new-tutorship.html">

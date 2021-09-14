@@ -24,8 +24,16 @@ public class JPAUserDAO extends JPAGenericDAO<User, Integer> implements UserDAO{
 		query.setParameter("param_cedula", cedula);
 		query.setParameter("param_clave", clave);
 		query.setParameter("param_rol", rol);
+		User result = null;
+		try {
+			result = (User) query.getSingleResult();
+		} catch (Exception e) {
+			return false;
+//			System.out.println(">>> Error JPAUserDAO:" + e);
+//			System.out.println(">>> Error JPAUserDAO:" + e);
+			
+		}
 		
-		User result = (User) query.getSingleResult();
 		
 		//Validamos los datos
 		if (result != null) {

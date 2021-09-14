@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -22,7 +23,7 @@ public class Teacher extends User  implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 
-	//@Id
+	
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id_teacher")
 	private Integer idTeacher;
@@ -30,7 +31,7 @@ public class Teacher extends User  implements Serializable{
 	//Muchos profesores pertenecen a un departamento
 	//JoinColum indica el nombre de la clave foranea que va a tener la tabla
 	
-	@ManyToOne
+	@OneToOne
 	@JoinColumn(name="id_departamento")
 	private Department departamento;
 	

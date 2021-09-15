@@ -212,13 +212,25 @@ public class mainTest {
 //		DAOFactory.getFactory().getScheduleDAO().createWithId(sched, 8);
 //		System.out.println("Se inserto un horario con id de profesor");
 		
-		//===============Caso de uso Listar Horarios Disponibles ===============
-		//DAOFactory.getFactory().getScheduleDAO().get
-		Teacher t = DAOFactory.getFactory().getTeacherDAO().getByID(8);
-		List<Schedule> sch =  t.getSchedule();
-		for (Schedule schedule : sch) {
-			System.out.println("ID: " + schedule.getIdSchedule());
-		}
+		//===============Caso de uso Listar Horarios Disponibles (Teacher)===============
+//		Teacher t = DAOFactory.getFactory().getTeacherDAO().getByID(8);
+//		List<Schedule> sch =  t.getSchedule();
+//		for (Schedule schedule : sch) {
+//			System.out.println("ID: " + schedule.getIdSchedule());
+//		}
+		
+		//===============Caso de uso Actualizar Horarios Disponibles (Teacher)===============
+//		//Recibimos el objeto con su ID, no necesitamos el id del teacher
+//		Schedule s = new Schedule();
+//		s.setIdSchedule(3);
+//		s.setDia("12/6/21");
+//		s.setHoraFin("14:45");
+//		s.setHoraInicio("15:00");
+//		DAOFactory.getFactory().getScheduleDAO().update(s);
+		
+		//===============Caso de uso Eliminar Horario Disponible (Teacher)===============
+		DAOFactory.getFactory().getScheduleDAO().deleteByID(1);
+		
 		
 		
 	}

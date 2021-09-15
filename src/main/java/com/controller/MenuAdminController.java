@@ -28,9 +28,8 @@ public class MenuAdminController extends HttpServlet {
 	}
 	
 	private void presentar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String url = "/jsp/ViewMenuAdmin.jsp";
-		//request.setAttribute(url, response);
-		getServletContext().getRequestDispatcher(url).forward(request, response);
+		String url = "/jsp/ViewMenuAdmin.jsp";				
+		request.getRequestDispatcher(url).forward(request, response);
 		
 	}
 

@@ -21,7 +21,7 @@
                             <select class="form-select custom-input text-white-50" name="userType" id="userType">
                                 <option value="Administrative">Administrative</option>
                                 <option value="Student">Student</option>
-                                <option value="pumpernickel">Teacher</option>
+                                <option value="Teacher">Teacher</option>
                             </select>
                         </div>
                         <div class="mb-3">

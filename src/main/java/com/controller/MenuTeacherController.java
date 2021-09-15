@@ -13,31 +13,23 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/MenuTeacherController")
 public class MenuTeacherController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
+   
     public MenuTeacherController() {
         super();
         // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		presentar(request,response);
+		System.out.print("Gettt!!!");
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	presentar(request, response);
 	}
-	private void presentar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("Entro por post de MenuOpcionesController");
-		String url = "/jsp/viewMenuTeacher.jsp";
-		getServletContext().getRequestDispatcher(url).forward(request, response);
+	private void presentar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {	
+		String url = "/jsp/ViewMenuTeacher.jsp";
+		request.getRequestDispatcher(url).forward(request, response);
 	}
 }

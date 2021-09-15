@@ -64,24 +64,25 @@ public class LoginController extends HttpServlet {
 		
 		
 		if(rol.equals("Administrative")) {
-			//HttpSession session = request.getSession();
+			HttpSession session = request.getSession();
 			//session.setAttribute("usuario Logueado", usuario);
 			request.getRequestDispatcher("/MenuAdminController").forward(request, response);
-			//request.getRequestDispatcher("/MenuAdminController").forward(request, response);
+			
 		}
 		else if (rol.equals("Student")) {
-			//HttpSession session = request.getSession();
+			HttpSession session = request.getSession();
 			//session.setAttribute("usuario Logueado", usuario);	
 			request.getRequestDispatcher("/MenuStudentController").forward(request, response);
 			//request.getRequestDispatcher("/MenuStudentController").forward(request, response);
 		}
 		else if (rol.equals("Teacher")) {
-			//HttpSession session = request.getSession();
+			HttpSession session = request.getSession();
 			//session.setAttribute("usuario Logueado", usuario);			
 			request.getRequestDispatcher("/MenuTeacherController").forward(request, response);
 		}
 		else {
-			request.getRequestDispatcher("/LoginController").forward(request, response);
+			// redirect again  to login not using Dispatcher
+			response.sendRedirect("jsp/ViewLogin.jsp");
 		}
 		
 		

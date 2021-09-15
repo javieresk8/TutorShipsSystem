@@ -233,9 +233,11 @@ public class mainTest {
 //		DAOFactory.getFactory().getScheduleDAO().deleteByID(1);
 		
 		//===============Caso de uso Listar Tutorias Registradas (Teacher)===============
-		
-		//**************************PENDIENTE**************************
-		
+		List<Tutorship> tutorias = DAOFactory.getFactory().getTeacherDAO().getTutorshipsById(8);
+		for (Tutorship tutorship : tutorias) {
+			System.out.println("Id: " + tutorship.getIdTutorship() + "Profesor" + tutorship.getTeacher().getApellido() +
+					" Estudiante: " + tutorship.getStudent().getApellido());
+		}
 		
 		
 		//*********************************ESTUDIANTE****************************
@@ -261,21 +263,19 @@ public class mainTest {
 //			System.out.println("La clave no coincide");
 		
 		//===============Caso de uso Listar Tutorias (Student)===============
-		List<Tutorship> tutorias = DAOFactory.getFactory().getStudentDAO().getTutorshipsById(3);
-		for (Tutorship tutorship : tutorias) {
-			System.out.println("Id: " + tutorship.getIdTutorship() + "Profesor" + tutorship.getTeacher().getApellido());
-		//NO FUNCIONA!!!	
-		}
-		System.out.println("Hecho!");
-		
+//		List<Tutorship> tutorias = DAOFactory.getFactory().getStudentDAO().getTutorshipsById(3);
+//		for (Tutorship tutorship : tutorias) {
+//			System.out.println("Id: " + tutorship.getIdTutorship() + "Profesor" + tutorship.getTeacher().getApellido() +
+//					" Estudiante: " + tutorship.getStudent().getApellido());
+//		}
+//		
 		
 		//===============Caso de uso Listar Horarios disponibles del profesor (Student)===============
-		List<Schedule> sc = DAOFactory.getFactory().getTeacherDAO().getByID(8).getSchedule();
-		
-		for (Schedule s : sc) {
-			System.out.println("Id: " + s.getIdSchedule() + "Dia: " + s.getDia());
-		//NO FUNCIONA!!!	
-		}
+//		List<Schedule> sc = DAOFactory.getFactory().getTeacherDAO().getByID(8).getSchedule();
+//		
+//		for (Schedule s : sc) {
+//			System.out.println("Id: " + s.getIdSchedule() + " Dia: " + s.getDia());	
+//		}
 		
 		//===============Caso de uso Solicitar Tutoria (Student)===============
 //		//Necesitamos tener el objeto student, schedule y teacher

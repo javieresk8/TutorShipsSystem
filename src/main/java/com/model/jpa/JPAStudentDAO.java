@@ -18,10 +18,12 @@ public class JPAStudentDAO extends JPAGenericDAO<Student, Integer> implements St
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Tutorship> getTutorshipsById(Integer idStudent) {
-		String sql = "SELECT t FROM Tutorship t WHERE t.student.idStudent = :param_idStudent";
+		String sql = "SELECT t FROM Tutorship t WHERE t.student.idUsuario = :param_idStudent";
 		Query query = em.createQuery(sql);
 		query.setParameter("param_idStudent", idStudent);
-		return query.getResultList();
+		List<Tutorship> tutorShips =  query.getResultList();
+		 
+		return tutorShips;
 	}
 
 }

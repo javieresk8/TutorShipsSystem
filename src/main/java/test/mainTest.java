@@ -10,6 +10,7 @@ import com.model.entidades.Department;
 import com.model.entidades.Schedule;
 import com.model.entidades.Student;
 import com.model.entidades.Teacher;
+import com.model.entidades.Tutorship;
 import com.model.entidades.User;
 import com.model.jpa.JPADAOFactory;
 
@@ -229,9 +230,64 @@ public class mainTest {
 //		DAOFactory.getFactory().getScheduleDAO().update(s);
 		
 		//===============Caso de uso Eliminar Horario Disponible (Teacher)===============
-		DAOFactory.getFactory().getScheduleDAO().deleteByID(1);
+//		DAOFactory.getFactory().getScheduleDAO().deleteByID(1);
+		
+		//===============Caso de uso Listar Tutorias Registradas (Teacher)===============
+		
+		//**************************PENDIENTE**************************
 		
 		
+		
+		//*********************************ESTUDIANTE****************************
+		//===============Caso de uso Ver Informacion de Autenticacion (Student)===============
+//		User st = DAOFactory.getFactory().getUserDAO().getByID(3); //Obligatorio debe ser User
+//		System.out.println(" Id: " + st.getIdUsuario()+ " apellido: " + st.getApellido()+" clave: " + st.getClave());
+//		
+		//===============Caso de uso Cambiar Clave (Student)===============
+//		//Debe ingresar clave antigua y validar
+//		boolean bandera = DAOFactory.getFactory().getUserDAO().authorize("4563456", "nuevaClave", "Student");
+//		//Ingresar la nueva clave
+//		if(bandera) {
+//			Student ad2 = new Student();
+//			ad2.setRol("Student"); //Siempre setear el rol
+//			ad2.setApellido("Cardenas");
+//			ad2.setCedula("4563456");
+//			ad2.setClave("nuevaClave2");
+//			ad2.setNombre("asdf"); 
+//			ad2.setIdUsuario(3);
+//			DAOFactory.getFactory().getUserDAO().update(ad2);
+//			System.out.println("La clave se actualizo correctamente");
+//		} else
+//			System.out.println("La clave no coincide");
+		
+		//===============Caso de uso Listar Tutorias (Student)===============
+		List<Tutorship> tutorias = DAOFactory.getFactory().getStudentDAO().getTutorshipsById(3);
+		for (Tutorship tutorship : tutorias) {
+			System.out.println("Id: " + tutorship.getIdTutorship() + "Profesor" + tutorship.getTeacher().getApellido());
+		//NO FUNCIONA!!!	
+		}
+		System.out.println("Hecho!");
+		
+		
+		//===============Caso de uso Listar Horarios disponibles del profesor (Student)===============
+		List<Schedule> sc = DAOFactory.getFactory().getTeacherDAO().getByID(8).getSchedule();
+		
+		for (Schedule s : sc) {
+			System.out.println("Id: " + s.getIdSchedule() + "Dia: " + s.getDia());
+		//NO FUNCIONA!!!	
+		}
+		
+		//===============Caso de uso Solicitar Tutoria (Student)===============
+//		//Necesitamos tener el objeto student, schedule y teacher
+//		//No hace validacion si ya esta ocupada la hora
+//		Teacher t = DAOFactory.getFactory().getTeacherDAO().getByID(8);
+//		Student s = DAOFactory.getFactory().getStudentDAO().getByID(3);
+//		Schedule sc = DAOFactory.getFactory().getScheduleDAO().getByID(2);
+//		Tutorship tutoria = new Tutorship();
+//		tutoria.setSchedule(sc);
+//		tutoria.setStudent(s);
+//		tutoria.setTeacher(t);
+//		DAOFactory.getFactory().getTutorshipDAO().create(tutoria);
 		
 	}
 		

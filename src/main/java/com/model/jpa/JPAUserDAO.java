@@ -5,7 +5,6 @@ import java.util.List;
 import javax.persistence.Query;
 
 import com.model.dao.UserDAO;
-import com.model.entidades.Department;
 import com.model.entidades.User;
 
 

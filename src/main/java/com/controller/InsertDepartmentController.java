@@ -22,20 +22,19 @@ public class InsertDepartmentController extends HttpServlet {
         // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		presentar(request, response);
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		presentar(request, response);
+	}
+	
+	private void presentar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String url = "/jsp/ViewInsertDepartment.jsp";				
+		request.getRequestDispatcher(url).forward(request, response);
+		
 	}
 
 }

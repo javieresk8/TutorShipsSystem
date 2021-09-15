@@ -14,28 +14,24 @@ import javax.servlet.http.HttpServletResponse;
 public class ListDepartmentController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
     public ListDepartmentController() {
         super();
         // TODO Auto-generated constructor stub
     }
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		presentar(request, response);
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		presentar(request, response);
+	}
+	
+	private void presentar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String url = "/jsp/ViewlistDepartment.jsp";				
+		request.getRequestDispatcher(url).forward(request, response);
+		
 	}
 
 }

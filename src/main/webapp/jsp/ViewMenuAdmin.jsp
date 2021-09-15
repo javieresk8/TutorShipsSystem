@@ -19,12 +19,12 @@
         <a class="badge badge-primary" href="LogoutController">Logout</a>
     </nav>
     <div class="container-1">
-        <a href="./list-departments.html">
+        <a href="ListDepartmentController">
             <div class="card button">
                 List Departments
             </div>
         </a>
-        <a href="./list-users.html">
+        <a href="ListUsersController">
             <div class="card button">
                 List Users
             </div>

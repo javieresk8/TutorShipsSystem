@@ -19,12 +19,12 @@
         <a class="badge badge-primary" href="LogoutController">Logout</a>
     </nav>
     <div class="container-1">
-        <a href="./list-tutorship.html">
+        <a href="ListTutorshipController">
             <div class="card button">
                 List Tutorship
             </div>
         </a>
-        <a href="./student-update.html">
+        <a href="">
             <div class="card button">
                 Update Information
             </div>

@@ -21,13 +21,12 @@ public class MenuTeacherController extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		presentar(request,response);
-		System.out.print("Gettt!!!");
 	}
 
-	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	presentar(request, response);
 	}
+	
 	private void presentar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {	
 		String url = "/jsp/ViewMenuTeacher.jsp";
 		request.getRequestDispatcher(url).forward(request, response);

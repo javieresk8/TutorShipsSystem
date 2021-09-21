@@ -31,7 +31,7 @@ public class ViewAuthenticationInformationController extends HttpServlet {
 	}
 	
 	private void presentar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {	
-		String url = "/jsp/ViewMenuTeacher.jsp";
+		String url = "/jsp/ViewAuthenticationInformation.jsp";
 		request.getRequestDispatcher(url).forward(request, response);
 	}
 

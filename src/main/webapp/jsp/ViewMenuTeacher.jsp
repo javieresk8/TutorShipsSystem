@@ -19,17 +19,17 @@
         <a class="badge badge-primary" href="LogoutController">Logout</a>
     </nav>
     <div class="container-1">
-        <a href="./list-schedule.html">
+        <a href="ListTeacherAvailableHoursController">
             <div class="card button">
                 List Schedule
             </div>
         </a>
-        <a href="./student-update.html">
+        <a href="ViewTeacherInformation">
             <div class="card button">
                 View Information
             </div>
         </a>
-        <a href="./list-registered-tutorship.html">
+        <a href="ListRegisteredTutorshipController">
             <div class="card button">
                 List registered tutorship
             </div>

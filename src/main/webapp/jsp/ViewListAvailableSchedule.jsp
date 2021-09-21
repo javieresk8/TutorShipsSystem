@@ -24,13 +24,13 @@
     <nav class="custom-nav">
         <img class="nav__image" alt="epn-logo" src="http://localhost:8080/FinalProject_AppWeb/jsp/assets/epn-logo.png" />
         <p class="fs-3">Teacher</p>
-        <a class="badge badge-primary" href="./login.html">Logout</a>
+        <a class="badge badge-primary" href="LogoutController">Logout</a>
     </nav>
     <div class="container">
         <div class="actions-container">
             <div>
                 <p class="fs-1">Your schedule</p>
-                <a href="./teacher.html">MenÃº principal</a>
+                <a href="MenuTeacherController">MenÃº principal</a>
             </div>
         </div>
         <table class="table table-dark table-striped custom-table" id="table">
@@ -43,7 +43,7 @@
             </thead>
         </table>
         <div style="min-width: 100%; text-align: center; margin: 50px 0;">
-            <a href="./new-schedule.html">
+            <a href="InsertAvailableSchedule">
                 <button class="btn btn-success">Add Schedule</button>
             </a>
         </div>

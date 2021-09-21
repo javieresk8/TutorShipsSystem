@@ -18,7 +18,7 @@
     <nav class="custom-nav">
         <img class="nav__image" alt="epn-logo" src="http://localhost:8080/FinalProject_AppWeb/jsp/assets/epn-logo.png" />
         <p class="fs-3">Teacher</p>
-        <a class="badge badge-primary" href="./login.html">Logout</a>
+        <a class="badge badge-primary" href="LogoutController">Logout</a>
     </nav>
     <div class="container">
         <p class="fs-1">Information</p>
@@ -64,7 +64,7 @@
         const cancelButton = document.getElementById('cancelButton');
         cancelButton.addEventListener('click', (e) => {
             e.preventDefault();
-            window.location.replace("./list-users.html");
+            window.location.replace("ViewTeacherInformation");
         })
     </script>
 </body>

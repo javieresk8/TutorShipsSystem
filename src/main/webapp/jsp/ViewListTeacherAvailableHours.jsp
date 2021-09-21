@@ -23,13 +23,13 @@
     <nav class="custom-nav">
         <img class="nav__image" alt="epn-logo" src="http://localhost:8080/FinalProject_AppWeb/jsp/assets/epn-logo.png" />
         <p class="fs-3">Student</p>
-        <a class="badge badge-primary" href="./login.html">Logout</a>
+        <a class="badge badge-primary" href="LogoutController">Logout</a>
     </nav>
     <div class="container">
         <div class="actions-container">
             <div>
                 <p class="fs-1">Schedule New Tutorship</p>
-                <a href="./list-tutorship.html">Cancel</a>
+                <a href="./ListTutorshipController">Cancel</a>
             </div>
         </div>
         <table class="table table-dark table-striped custom-table" id="table">

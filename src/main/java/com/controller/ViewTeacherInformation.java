@@ -1,7 +1,6 @@
 package com.controller;
 
 import java.io.IOException;
-import javax.servlet.Servlet;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -9,23 +8,23 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class ListRegisteredTutorshipController
+ * Servlet implementation class ViewTeacherInformation
  */
-@WebServlet("/ListRegisteredTutorshipController")
-public class ListRegisteredTutorshipController extends HttpServlet implements Servlet {
+@WebServlet("/ViewTeacherInformation")
+public class ViewTeacherInformation extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ListRegisteredTutorshipController() {
+    public ViewTeacherInformation() {
         super();
         // TODO Auto-generated constructor stub
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		presentar(request,response);
-		
+		System.out.print("Gettt!!!");
 	}
 
 	
@@ -33,7 +32,7 @@ public class ListRegisteredTutorshipController extends HttpServlet implements Se
 	presentar(request, response);
 	}
 	private void presentar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {	
-		String url = "/jsp/ViewListRegisteredTutorship.jsp";
+		String url = "/jsp/ViewTeacherViewInformation.jsp";
 		request.getRequestDispatcher(url).forward(request, response);
 	}
 

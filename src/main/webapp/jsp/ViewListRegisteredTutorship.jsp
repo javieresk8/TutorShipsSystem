@@ -24,13 +24,13 @@
     <nav class="custom-nav">
         <img class="nav__image" alt="epn-logo" src="http://localhost:8080/FinalProject_AppWeb/jsp/assets/epn-logo.png" />
         <p class="fs-3">Teacher</p>
-        <a class="badge badge-primary" href="./login.html">Logout</a>
+        <a class="badge badge-primary" href="LogoutController">Logout</a>
     </nav>
     <div class="container">
         <div class="actions-container">
             <div>
                 <p class="fs-1">Scheduled tutorship</p>
-                <a href="./teacher.html">MenÃº principal</a>
+                <a href="MenuTeacherController">MenÃº principal</a>
             </div>
         </div>
         <div class="tutorship-container">

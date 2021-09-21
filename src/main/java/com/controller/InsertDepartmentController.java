@@ -34,7 +34,7 @@ public class InsertDepartmentController extends HttpServlet {
 		String nombre = request.getParameter("name");
 		Department d = new Department();
 		d.setNombreDepartamento(nombre);
-		com.model.dao.DAOFactory.getFactory().getDapartmentDAO().create(d);
+	
 		request.getRequestDispatcher("ListDepartmentController").forward(request, response);
 		//presentar(request, response);
 	}

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,17 +31,26 @@
         <div class="actions-container">
             <div>
                 <p class="fs-1">Your schedule</p>
-                <a href="MenuTeacherController">MenÃº principal</a>
+                <a href="MenuTeacherController">Menu principal</a>
             </div>
         </div>
         <table class="table table-dark table-striped custom-table" id="table">
             <thead>
                 <tr>
-                    <th scope="col">Day</th>
-                    <th scope="col">Hour</th>
-                    <th scope="col">Actions</th>
+                    <td >Dia</td>
+                    <td >Hora Inicio</td>
+                    <td >Hora Fin</td>
+                    <td >actions</td>
                     <tr />
             </thead>
+             <c:forEach var="horario" items="${horarios}" >
+<tr>
+	<td>${horario.dia }</td>
+	<td>${horario.horaInicio   }</td>
+	<td>${ horario.horaFin}</td>
+	<td> <a href="ActualizarPersonasController?id=${persona.id}&&nombre=${persona.nombre}&&password=${persona.password}">Actualizar</a> | <a href="EliminarPersonasController?id=${persona.id}">Eliminar</a> </td>
+</tr>
+</c:forEach>
         </table>
         <div style="min-width: 100%; text-align: center; margin: 50px 0;">
             <a href="InsertAvailableSchedule">

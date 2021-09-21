@@ -25,13 +25,13 @@ public class mainTest {
 		//user.setApellido("erazo");
 		
 //		//===============Caso de uso Insertar Admin***NUEVO****===============
-//		User ad2 = new Admin();
-//		ad2.setApellido("Erazo");
-//		ad2.setCedula("1234132");
-//		ad2.setClave("sdf");
-//		ad2.setNombre("asdf");
-//		DAOFactory.getFactory().getUserDAO().create(ad2);
-//		System.out.println("Se inserto:" + ad2.toString());
+		User ad2 = new Admin();
+		ad2.setApellido("Erazo");
+		ad2.setCedula("1234132");
+		ad2.setClave("sdf");
+		ad2.setNombre("asdf");
+		DAOFactory.getFactory().getUserDAO().create(ad2);
+		System.out.println("Se inserto:" + ad2.toString());
 //		
 //		//===============Caso de uso Insertar Student***NUEVO***===============
 //		User st = new Student();
@@ -233,11 +233,11 @@ public class mainTest {
 //		DAOFactory.getFactory().getScheduleDAO().deleteByID(1);
 		
 		//===============Caso de uso Listar Tutorias Registradas (Teacher)===============
-		List<Tutorship> tutorias = DAOFactory.getFactory().getTeacherDAO().getTutorshipsById(8);
-		for (Tutorship tutorship : tutorias) {
-			System.out.println("Id: " + tutorship.getIdTutorship() + "Profesor" + tutorship.getTeacher().getApellido() +
-					" Estudiante: " + tutorship.getStudent().getApellido());
-		}
+		//List<Tutorship> tutorias = DAOFactory.getFactory().getTeacherDAO().getTutorshipsById(8);
+		//for (Tutorship tutorship : tutorias) {
+//			System.out.println("Id: " + tutorship.getIdTutorship() + "Profesor" + tutorship.getTeacher().getApellido() +
+	//				" Estudiante: " + tutorship.getStudent().getApellido());
+		//}
 		
 		
 		//*********************************ESTUDIANTE****************************

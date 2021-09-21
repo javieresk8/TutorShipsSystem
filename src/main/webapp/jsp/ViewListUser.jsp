@@ -37,9 +37,9 @@
                     New User
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="./new-administrator.html">Administrator</a>
-                    <a class="dropdown-item" href="./new-teacher.html">Teacher</a>
-                    <a class="dropdown-item" href="./new-student.html">Student</a>
+                    <a class="dropdown-item" href="InsertAdminController">Administrator</a>
+                    <a class="dropdown-item" href="InsertTeacherController">Teacher</a>
+                    <a class="dropdown-item" href="InsertStudentController">Student</a>
                 </div>
             </div>
         </div>

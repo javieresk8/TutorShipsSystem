@@ -22,7 +22,7 @@
     </nav>
     <div class="container">
         <p class="fs-1">Add new department</p>
-        <form class="p-2 form" method="GET" action="">
+        <form class="p-2 form" method="POST" action="InsertDepartmentController">
             <div class="card login-form text-white">
                 <div >
                     <div class="mb-3">

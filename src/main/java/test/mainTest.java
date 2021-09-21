@@ -71,10 +71,10 @@ public class mainTest {
 //		DAOFactory.getFactory().getDapartmentDAO().create(dep3);
 		
 //		//===============Caso de uso Listar Departamentos===============
-//		List<Department> deptos = DAOFactory.getFactory().getDapartmentDAO().getDepartments();
-//		for(Department d: deptos) {
-//			System.out.println("Id: " + d.getIdDepartment()+" Nombre: " + d.getNombreDepartamento());	
-//		}
+	//List<Department> deptos = DAOFactory.getFactory().getDapartmentDAO().getDepartments();
+		//for(Department d: deptos) {
+			//System.out.println("Id: " + d.getIdDepartment()+" Nombre: " + d.getNombreDepartamento());	
+		//}
 //		
 //		//=============== Caso de Uso Eliminar Departamento ===============
 //		

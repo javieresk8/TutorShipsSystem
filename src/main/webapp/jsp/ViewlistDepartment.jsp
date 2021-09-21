@@ -1,5 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,7 +30,7 @@
         <div class="actions-container">
             <div>
                 <p class="fs-1">Departments List</p>
-                <a href="./administrator.html">MenÃº principal</a>
+                <a href="./administrator.html">Menú principal</a>
             </div>
             <div class="dropdown">
                 <a href="InsertDepartmentController">
@@ -39,14 +40,24 @@
                 </a>
             </div>
         </div>
+       
+
+       
         <table class="table table-dark table-striped custom-table" id="table">
             <thead>
                 <tr>
-                    <th scope="col">Name</th>
-                    <th scope="col">Actions</th>
+                    <td >Name</td>
+                    <td >Actions</td>
                     <tr />
             </thead>
-        </table>
+            
+            <c:forEach var="departamento" items="${departamentos}" >
+<tr>
+	<td>${departamento.nombreDepartamento }</td>
+	<td> <a href="ActualizarPersonasController?id=${persona.id}&&nombre=${persona.nombre}&&password=${persona.password}">Actualizar</a> | <a href="EliminarPersonasController?id=${persona.id}">Eliminar</a> </td>
+</tr>
+</c:forEach>
+       </table>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"

@@ -7,6 +7,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.model.entidades.Department;
+
+
 /**
  * Servlet implementation class InsertDepartmentController
  */
@@ -28,7 +31,12 @@ public class InsertDepartmentController extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		presentar(request, response);
+		String nombre = request.getParameter("name");
+		Department d = new Department();
+		d.setNombreDepartamento(nombre);
+		com.model.dao.DAOFactory.getFactory().getDapartmentDAO().create(d);
+		request.getRequestDispatcher("ListDepartmentController").forward(request, response);
+		//presentar(request, response);
 	}
 	
 	private void presentar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

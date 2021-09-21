@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,12 +23,12 @@
     </nav>
     <div class="container">
         <p class="fs-1">Update department</p>
-        <form class="p-2 form" method="GET" action="#">
+        <form class="p-2 form" method="POST" action="#">
             <div class="card login-form text-white">
                 <div >
                     <div class="mb-3">
                         <label class="form-label" for="identityNumber">Name</label>
-                        <input style="min-width: 100%;" class="form-control custom-input text-white-50" type="text" id="name" name="name" />
+                        <input style="min-width: 100%;" class="form-control custom-input text-white-50" type="text" id="name" name="name"/>
                     </div>
                 </div>
             </div>

@@ -52,10 +52,10 @@
             </thead>
             
             <c:forEach var="departamento" items="${departamentos}" >
-<tr>
-	<td>${departamento.nombreDepartamento }</td>
-	<td> <a href="ActualizarPersonasController?id=${persona.id}&&nombre=${persona.nombre}&&password=${persona.password}">Actualizar</a> | <a href="EliminarPersonasController?id=${persona.id}">Eliminar</a> </td>
-</tr>
+			<tr>
+			<td>${departamento.nombreDepartamento}</td>
+			<td> <a href="UpdateDepartmentController?idDepartamento=${departamento.idDepartment}">Actualizar</a> | <a href="EliminarPersonasController?id=${persona.id}">Eliminar</a> </td>
+			</tr>
 </c:forEach>
        </table>
     </div>

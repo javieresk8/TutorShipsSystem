@@ -6,7 +6,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+import com.model.dao.DAOFactory;
+import com.model.dao.GenericDAO;
 import com.model.entidades.Department;
 
 
@@ -34,7 +35,7 @@ public class InsertDepartmentController extends HttpServlet {
 		String nombre = request.getParameter("name");
 		Department d = new Department();
 		d.setNombreDepartamento(nombre);
-	
+		DAOFactory.getFactory().getDapartmentDAO().create(d);
 		request.getRequestDispatcher("ListDepartmentController").forward(request, response);
 		//presentar(request, response);
 	}

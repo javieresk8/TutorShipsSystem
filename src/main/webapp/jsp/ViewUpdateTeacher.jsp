@@ -52,6 +52,7 @@
                     <label class="form-label" for="userType">Department</label>
                     <select style="min-width: 100%;" class="form-select custom-input text-white-50" name="department" id="department">
                      <c:forEach var="depto" items="${deptos}" >
+                     
                         <option value="${depto.idDepartment}">${depto.nombreDepartamento}</option>               
 					</c:forEach>                        
                     </select>

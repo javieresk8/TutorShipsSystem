@@ -9,11 +9,13 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.model.dao.DAOFactory;
 import com.model.entidades.Department;
 import com.model.entidades.Schedule;
 import com.model.entidades.Teacher;
+import com.model.entidades.User;
 
 /**
  * Servlet implementation class InsertAvailableSchedule
@@ -37,6 +39,9 @@ public class InsertAvailableSchedule extends HttpServlet {
 
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession misession = (HttpSession) request.getSession();
+		User usuario = (User) misession.getAttribute("usuario Logueado");
+		Integer id = usuario.getIdUsuario();
 		String date = request.getParameter("date");
 		String hour = request.getParameter("hour");
 		 String[] parts = hour.split("-");
@@ -51,7 +56,7 @@ public class InsertAvailableSchedule extends HttpServlet {
 		List<Schedule> horarios = new ArrayList<Schedule>();
 		horarios.add(sched);
 		t.setSchedule(horarios);
-		DAOFactory.getFactory().getScheduleDAO().createWithId(sched, 4);
+		DAOFactory.getFactory().getScheduleDAO().createWithId(sched, id);
 		request.getRequestDispatcher("ListTeacherAvailableHoursController").forward(request, response);
 
 	}

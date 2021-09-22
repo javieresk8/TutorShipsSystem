@@ -8,9 +8,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.model.dao.DAOFactory;
 import com.model.entidades.Tutorship;
+import com.model.entidades.User;
 
 /**
  * Servlet implementation class ListTutorshipController
@@ -18,7 +20,7 @@ import com.model.entidades.Tutorship;
 @WebServlet("/ListTutorshipController")
 public class ListTutorshipController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       Integer id = 7;    /**
+        /**
      * @see HttpServlet#HttpServlet()
      */
     public ListTutorshipController() {
@@ -38,11 +40,15 @@ public class ListTutorshipController extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	
 		// TODO Auto-generated method stub
 		presentar(request, response);
 	}
 	
 	protected void presentar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession misession = (HttpSession) request.getSession();
+		User usuario = (User) misession.getAttribute("usuario Logueado");
+		Integer id = usuario.getIdUsuario();
 		List<Tutorship> tutor = DAOFactory.getFactory().getStudentDAO().getTutorshipsById(id);
 		for (Tutorship tutorship : tutor) {
 		System.out.println("Id: " + tutorship.getIdTutorship() + "Profesor" + tutorship.getTeacher().getApellido() +

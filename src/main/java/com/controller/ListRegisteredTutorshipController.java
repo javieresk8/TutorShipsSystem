@@ -9,9 +9,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.model.dao.DAOFactory;
 import com.model.entidades.Tutorship;
+import com.model.entidades.User;
 
 /**
  * Servlet implementation class ListRegisteredTutorshipController
@@ -29,7 +31,10 @@ public class ListRegisteredTutorshipController extends HttpServlet implements Se
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	List<Tutorship> tutorias = DAOFactory.getFactory().getTeacherDAO().getTutorshipsById(4);
+		HttpSession misession = (HttpSession) request.getSession();
+		User usuario = (User) misession.getAttribute("usuario Logueado");
+		Integer id = usuario.getIdUsuario();
+	List<Tutorship> tutorias = DAOFactory.getFactory().getTeacherDAO().getTutorshipsById(id);
 				for (Tutorship tutorship : tutorias) {
 				System.out.println("Id: " + tutorship.getIdTutorship() + "Profesor" + tutorship.getTeacher().getApellido() +
 				" Estudiante: " + tutorship.getStudent().getApellido() + tutorship.getStudent().getNombre()+" "+ tutorship.getSchedule().getDia());

@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.model.dao.DAOFactory;
 import com.model.entidades.Schedule;
@@ -24,7 +25,7 @@ import com.model.entidades.User;
 public class RequestTutorshipController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	Integer IdTeacher=4;
-	Integer  IdStudent= 7;
+	
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -35,8 +36,10 @@ public class RequestTutorshipController extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		List<Schedule> sc = DAOFactory.getFactory().getTeacherDAO().getByID(IdTeacher).getSchedule();
 		List<User> profesores = DAOFactory.getFactory().getUserDAO().getUsers();
+		
 		 List<Teacher> arrayProfesores = new ArrayList<>();
 		
 		for (User s : profesores) {
@@ -55,6 +58,9 @@ public class RequestTutorshipController extends HttpServlet {
 	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession misession = (HttpSession) request.getSession();
+		User usuario = (User) misession.getAttribute("usuario Logueado");
+		Integer IdStudent = usuario.getIdUsuario();
 		Student informacion = DAOFactory.getFactory().getStudentDAO().getByID(IdStudent);
 		String id_teacher = request.getParameter("teacher");
 		String id_date = request.getParameter("date");

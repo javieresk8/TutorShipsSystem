@@ -6,10 +6,12 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.swing.JOptionPane;
 
 import com.model.dao.DAOFactory;
 import com.model.entidades.Student;
+import com.model.entidades.User;
 
 /**
  * Servlet implementation class ChangePasswordController
@@ -17,8 +19,8 @@ import com.model.entidades.Student;
 @WebServlet("/ChangePasswordController")
 public class ChangePasswordController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	Integer id = 7;
-	Student informacion = DAOFactory.getFactory().getStudentDAO().getByID(id);
+	
+	
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -29,14 +31,20 @@ public class ChangePasswordController extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		
-
+		HttpSession misession = (HttpSession) request.getSession();
+		User usuario = (User) misession.getAttribute("usuario Logueado");
+		Integer id = usuario.getIdUsuario();
+		Student informacion = DAOFactory.getFactory().getStudentDAO().getByID(id);
 		String clave = informacion.getClave();
 		request.setAttribute("clave", clave);
 			presentar(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession misession = (HttpSession) request.getSession();
+		User usuario = (User) misession.getAttribute("usuario Logueado");
+		Integer id = usuario.getIdUsuario();
+		Student informacion = DAOFactory.getFactory().getStudentDAO().getByID(id);
 		String contraseñaNueva = request.getParameter("newPassword");
 		String repeatNewPassword = request.getParameter("repeatNewPassword");
 		

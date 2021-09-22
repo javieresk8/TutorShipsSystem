@@ -5,7 +5,8 @@ import java.util.List;
 import com.model.entidades.User;
 
 public interface UserDAO extends GenericDAO<User, Integer>{
-	public boolean authorize(String cedula, String clave, String rol);
+	public User authorize(String cedula, String clave, String rol);
+	
 	public List<User> getUsers();
 
 }

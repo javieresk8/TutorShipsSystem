@@ -8,10 +8,12 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.model.dao.DAOFactory;
 import com.model.entidades.Department;
 import com.model.entidades.Teacher;
+import com.model.entidades.User;
 
 /**
  * Servlet implementation class UpdateTeacherInformation
@@ -40,7 +42,10 @@ public class UpdateTeacherInformation extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Integer id = 4;
+		
+		HttpSession misession = (HttpSession) request.getSession(); 
+		User user = (User)misession.getAttribute("usuario Logueado");
+		Integer id = user.getIdUsuario();
 		Teacher teacher_information = DAOFactory.getFactory().getTeacherDAO().getByID(id);
 		String clave = teacher_information.getClave();
 		//String cedula = teacher_information.getCedula();
@@ -52,7 +57,7 @@ public class UpdateTeacherInformation extends HttpServlet {
 		
 		Teacher teacher = new Teacher();
 		
-		teacher.setIdUsuario(4); //OJO: se debe setear el Id del usuario NO del teacher, caso contrario inserta uno nuevo
+		teacher.setIdUsuario(id); //OJO: se debe setear el Id del usuario NO del teacher, caso contrario inserta uno nuevo
 		teacher.setRol("Teacher");		
 		teacher.setApellido(apellido);
 		teacher.setCedula(cedula);

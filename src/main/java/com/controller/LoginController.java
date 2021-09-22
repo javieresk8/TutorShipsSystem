@@ -1,6 +1,8 @@
 package com.controller;
 
 import java.io.IOException;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -48,19 +50,20 @@ public class LoginController extends HttpServlet {
 		System.out.println(clave);
 		System.out.println(cedula);
 		
-		boolean usuario = DAOFactory.getFactory().getUserDAO().authorize(cedula, clave, rol);
-		if (usuario==true) {
-			if(usuario==true && rol.equals("Admin")) {
+		User usuario = DAOFactory.getFactory().getUserDAO().authorize(cedula, clave, rol);
+		List<User> users = DAOFactory.getFactory().getUserDAO().getUsers();
+		if (usuario!=null) {
+			if( rol.equals("Admin")) {
 				HttpSession session = request.getSession();
 				//session.setAttribute("idUsuario", idUsuario);
 				request.getRequestDispatcher("/MenuAdminController").forward(request, response);
 			}
-			else if (usuario==true && rol.equals("Teacher")) {
+			else if ( rol.equals("Teacher")) {
 				HttpSession session = request.getSession();
 				session.setAttribute("usuario Logueado", usuario);
 				request.getRequestDispatcher("/MenuTeacherController").forward(request, response);
 			}
-			else if (usuario==true && rol.equals("Student")) {
+			else if (rol.equals("Student")) {
 				HttpSession session = request.getSession();
 				session.setAttribute("usuario Logueado", usuario);
 				request.getRequestDispatcher("/MenuStudentController").forward(request, response);

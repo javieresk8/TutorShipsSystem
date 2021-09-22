@@ -6,9 +6,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.model.dao.DAOFactory;
 import com.model.entidades.Student;
+import com.model.entidades.User;
 
 /**
  * Servlet implementation class ViewAuthenticationInformationController
@@ -27,7 +29,9 @@ public class ViewAuthenticationInformationController extends HttpServlet {
     }
     
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		HttpSession misession = (HttpSession) request.getSession();
+		User usuario = (User) misession.getAttribute("usuario Logueado");
+		Integer id = usuario.getIdUsuario();
 		Student informacion = DAOFactory.getFactory().getStudentDAO().getByID(id);
 
 		System.out.println("Id: " + informacion.getIdUsuario() +

@@ -33,7 +33,7 @@ public class UpdateAvailableSchedule extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.print(request.getParameter("horario"));
+		
 		idSchedule = request.getParameter("id");
 		presentar(request, response);
 	}

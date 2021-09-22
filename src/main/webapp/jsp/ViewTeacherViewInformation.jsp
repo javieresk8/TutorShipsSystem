@@ -40,7 +40,7 @@
             </div>
             <div>
                     <label class="form-label" for="identityNumber">C.I</label>
-                    <input  style="min-width: 100%;" class="form-control custom-input text-white-50" type="text" id="identityNumber"  value="${cedula}" 
+                    <input disabled style="min-width: 100%;" class="form-control custom-input text-gray-50" type="text" id="identityNumber"  value="${cedula}" 
                         name="identityNumber" />
             </div>
                 <div class="mb-3">

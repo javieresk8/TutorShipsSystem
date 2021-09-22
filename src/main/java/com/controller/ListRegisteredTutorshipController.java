@@ -1,12 +1,17 @@
 package com.controller;
 
 import java.io.IOException;
+import java.util.List;
+
 import javax.servlet.Servlet;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.model.dao.DAOFactory;
+import com.model.entidades.Tutorship;
 
 /**
  * Servlet implementation class ListRegisteredTutorshipController
@@ -24,8 +29,14 @@ public class ListRegisteredTutorshipController extends HttpServlet implements Se
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		presentar(request,response);
-		
+	List<Tutorship> tutorias = DAOFactory.getFactory().getTeacherDAO().getTutorshipsById(4);
+				for (Tutorship tutorship : tutorias) {
+				System.out.println("Id: " + tutorship.getIdTutorship() + "Profesor" + tutorship.getTeacher().getApellido() +
+				" Estudiante: " + tutorship.getStudent().getApellido() + tutorship.getStudent().getNombre()+" "+ tutorship.getSchedule().getDia());
+				}
+	request.setAttribute("tutorias", tutorias);
+	
+		presentar(request, response);
 	}
 
 	

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+		<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -34,18 +35,17 @@
             </div>
         </div>
         <div class="tutorship-container">
+        <c:forEach var="tutoria" items="${tutorias}" >
             <div class="tutorship-card">
-                <p>Student: Anderson Cardenas</p>
-                <p>Date: Monday/25/09/2021</p>
+            
+
+		<p>Student: ${tutoria.getStudent().getNombre()} ${tutoria.getStudent().getApellido()}</p>
+                <p>Date: ${tutoria.getSchedule().getDia()}</p>
+
+                
             </div>
-            <div class="tutorship-card">
-                <p>Student: Anderson Cardenas</p>
-                <p>Date: Monday/25/09/2021</p>
-            </div>
-            <div class="tutorship-card">
-                <p>Student: Anderson Cardenas</p>
-                <p>Date: Monday/25/09/2021</p>
-            </div>
+            </c:forEach>
+            
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"

@@ -22,7 +22,7 @@
     </nav>
     <div class="container">
         <p class="fs-1">Add new administrator</p>
-        <form class="p-2 form" method="GET" action="#">
+        <form class="p-2 form" method="POST" action="InsertAdminController">
                     <div class="card login-form text-white">
             <div style="display: flex; justify-content: space-between;">
                 <div class="mb-3">

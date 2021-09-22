@@ -22,7 +22,7 @@
     </nav>
     <div class="container">
         <p class="fs-1">Add new student</p>
-        <form class="p-2 form" method="GET" action="#">
+        <form class="p-2 form" method="POST" action="InsertStudentController">
         <div class="card login-form text-white">
             <div style="display: flex; justify-content: space-between;">
                 <div class="mb-3">
@@ -33,7 +33,7 @@
                 <div class="mb-3">
                     <label class="form-label" for="identityNumber">Last name</label>
                     <input class="form-control custom-input text-white-50" type="text" id="lastname"
-                        name="lastname" />
+                        name="lastname"/>
                 </div>
             </div>
             <div>

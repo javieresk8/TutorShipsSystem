@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -52,6 +53,14 @@
                     <th scope="col">Actions</th>
                     <tr />
             </thead>
+              <c:forEach var="user" items="${users}" >
+			<tr>
+			<td>${user.getNombre()}</td>
+			<td>${user.getApellido()}</td>
+			<td>${user.getRol()}</td>
+			<td> <a href="UpdateUserController?idUser=${user.getIdUsuario()}">Actualizar</a> | <a href="DeleteDepartmentController?idUser=${user.getIdUsuario()}">Eliminar</a> </td>
+			</tr>
+			</c:forEach>
         </table>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"

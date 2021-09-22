@@ -56,7 +56,7 @@
 			<td>${departamento.nombreDepartamento}</td>
 			<td> <a href="UpdateDepartmentController?idDepartamento=${departamento.idDepartment}">Actualizar</a> | <a href="DeleteDepartmentController?idDepartamento=${departamento.idDepartment}">Eliminar</a> </td>
 			</tr>
-</c:forEach>
+			</c:forEach>
        </table>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"

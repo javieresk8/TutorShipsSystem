@@ -30,6 +30,7 @@ public class ListDepartmentController extends HttpServlet {
 
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		presentar(request, response);
 	}
 	
@@ -40,8 +41,7 @@ public class ListDepartmentController extends HttpServlet {
 			System.out.println("Id: " + d.getIdDepartment()+" Nombre: " + d.getNombreDepartamento());	
 		}*/
 		//redireccionar a vista
-		request.setAttribute("departamentos", departamentos);
-		
+		request.setAttribute("departamentos", departamentos);		
 		String url = "/jsp/ViewlistDepartment.jsp";				
 		request.getRequestDispatcher(url).forward(request, response);
 		

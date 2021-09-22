@@ -58,7 +58,7 @@
 			<td>${user.getNombre()}</td>
 			<td>${user.getApellido()}</td>
 			<td>${user.getRol()}</td>
-			<td> <a href="UpdateUserController?idUser=${user.getIdUsuario()}">Actualizar</a> | <a href="DeleteDepartmentController?idUser=${user.getIdUsuario()}">Eliminar</a> </td>
+			<td> <a href="UpdateUserController?idUser=${user.getIdUsuario()}&rol=${user.getRol()}">Actualizar</a> | <a href="DeleteUserController?idUser=${user.getIdUsuario()}">Eliminar</a> </td>
 			</tr>
 			</c:forEach>
         </table>

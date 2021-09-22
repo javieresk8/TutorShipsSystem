@@ -31,7 +31,7 @@ public class DeleteDepartmentController extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	String idDepartamento = request.getParameter("idDepartamento");
-    	System.out.println(request.getParameter("idDepartamento"));
+    	//System.out.println(request.getParameter("idDepartamento"));
 		DAOFactory.getFactory().getDapartmentDAO().deleteByID(Integer.parseInt(idDepartamento));		
 		request.getRequestDispatcher("ListDepartmentController").forward(request, response);	
 	}

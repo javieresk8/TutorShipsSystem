@@ -39,6 +39,10 @@ public class LoginController extends HttpServlet {
 		String cedula = request.getParameter("identityNumber");
 		String clave = request.getParameter("password");
 		String rol = request.getParameter("userType");
+		
+		//List<User> users = DAOFactory.getFactory().getUserDAO().getUsers();
+		
+		//String idUsuario = 
 
 		System.out.println("\n"+rol);
 		System.out.println(clave);
@@ -48,7 +52,7 @@ public class LoginController extends HttpServlet {
 		if (usuario==true) {
 			if(usuario==true && rol.equals("Admin")) {
 				HttpSession session = request.getSession();
-				session.setAttribute("usuario Logueado", usuario);
+				//session.setAttribute("idUsuario", idUsuario);
 				request.getRequestDispatcher("/MenuAdminController").forward(request, response);
 			}
 			else if (usuario==true && rol.equals("Teacher")) {

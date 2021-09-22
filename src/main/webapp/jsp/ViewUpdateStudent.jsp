@@ -60,7 +60,7 @@
         const cancelButton = document.getElementById('cancelButton');
         cancelButton.addEventListener('click', (e) => {
             e.preventDefault();
-            window.location.replace("./list-users.html");
+            window.location.replace("ListUsersController");
         })
     </script>
 </body>

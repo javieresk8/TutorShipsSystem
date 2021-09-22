@@ -35,10 +35,7 @@
                         <div class="actions-container">
                             <button type="submit" class="btn btn-primary button">Sign In</button>
                         </div>
-                        <div class="mb-3 form-check text-white-50 remember-container">
-                            <input type="checkbox" class="form-check-input bg-dark" id="rememberMe">
-                            <label class="form-check-label" for="rememberMe">Remember me</label>
-                        </div>
+                        
                     </form>
                 </div>
             </div>

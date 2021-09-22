@@ -30,7 +30,7 @@
         <div class="actions-container">
             <div>
                 <p class="fs-1">Users List</p>
-                <a href="./administrator.html">Menú principal</a>
+                <a href="MenuAdminController">Menú principal</a>
             </div>
             <div class="dropdown">
                 <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton"

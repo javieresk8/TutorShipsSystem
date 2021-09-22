@@ -17,7 +17,7 @@
 <body class="text-white">
     <nav class="custom-nav">
         <img class="nav__image" alt="epn-logo" src="http://localhost:8080/FinalProject_AppWeb/jsp/assets/epn-logo.png" />
-        <p class="fs-3">Administrator</p>
+        <a class="fs-3" href="ListDepartmentController">Administrator</a>
         <a class="badge badge-primary" href="LogoutController">Logout</a>
     </nav>
     <div class="container">
@@ -33,7 +33,7 @@
             </div>
             <div class="actions-container" style="margin-top: 50px; display: flex; justify-content: center; gap: 50px;">
                 <a>
-                    <button id="cancelButton" class="btn btn-danger">Cancel</button>
+                    <button id="cancelButton" class="btn btn-danger" href="ListDepartmentController">Cancel</button>
                 </a>
                 <button type="submit" class="btn btn-success">Save</button>
             </div>

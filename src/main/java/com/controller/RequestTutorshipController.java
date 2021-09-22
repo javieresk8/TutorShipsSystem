@@ -36,7 +36,7 @@ public class RequestTutorshipController extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		IdTeacher=24;
 		List<Schedule> sc = DAOFactory.getFactory().getTeacherDAO().getByID(IdTeacher).getSchedule();
 		List<User> profesores = DAOFactory.getFactory().getUserDAO().getUsers();
 		

@@ -30,7 +30,7 @@
         <div class="actions-container">
             <div>
                 <p class="fs-1">Departments List</p>
-                <a href="./administrator.html">Menú principal</a>
+                <a href="MenuAdminController">Menú principal</a>
             </div>
             <div class="dropdown">
                 <a href="InsertDepartmentController">

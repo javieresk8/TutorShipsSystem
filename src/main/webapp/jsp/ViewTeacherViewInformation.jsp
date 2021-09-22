@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,32 +23,32 @@
     </nav>
     <div class="container">
         <p class="fs-1">Information</p>
-        <form class="p-2 form" method="GET" action="#">
+        <form class="p-2 form" method="POST" action="UpdateTeacherInformation">
             <div class="card login-form text-white">
                 	        <div class="card login-form text-white">
             <div style="display: flex; justify-content: space-between;">
                 <div class="mb-3">
                     <label class="form-label" for="identityNumber">Name</label>
-                    <input disabled class="form-control custom-input text-white-50" type="text" id="name"
+                    <input  class="form-control custom-input text-white-50" type="text" id="name" value="${nombre}" 
                         name="name" />
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="identityNumber">Last name</label>
-                    <input disabled class="form-control custom-input text-white-50" type="text" id="lastname"
+                    <input  class="form-control custom-input text-white-50" type="text" id="lastname"  value="${apellido}" 
                         name="lastname" />
                 </div>
             </div>
             <div>
                     <label class="form-label" for="identityNumber">C.I</label>
-                    <input disabled style="min-width: 100%;" class="form-control custom-input text-white-50" type="text" id="identityNumber"
+                    <input  style="min-width: 100%;" class="form-control custom-input text-white-50" type="text" id="identityNumber"  value="${cedula}" 
                         name="identityNumber" />
             </div>
                 <div class="mb-3">
                     <label class="form-label" for="userType">Department</label>
-                    <select disabled style="min-width: 100%;" class="form-select custom-input text-white-50" name="department" id="department">
-                        <option value="Administrative">department 1</option>
-                        <option value="Student">department 1</option>
-                        <option value="pumpernickel">department 1</option>
+                    <select  style="min-width: 100%;" class="form-select custom-input text-white-50" name="department" id="department">
+                        <c:forEach var="departamento" items="${departamentos}">
+                    <option value="${departamento.idDepartment}">${departamento.nombreDepartamento}</option>
+				</c:forEach>
                     </select>
                 </div>
             </div>

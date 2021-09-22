@@ -39,30 +39,35 @@ public class LoginController extends HttpServlet {
 		String cedula = request.getParameter("identityNumber");
 		String clave = request.getParameter("password");
 		String rol = request.getParameter("userType");
+
+		System.out.println("\n"+rol);
+		System.out.println(clave);
+		System.out.println(cedula);
 		
-		//boolean usuario = DAOFactory.getFactory().getUserDAO().authorize(cedula, clave, rol);
+		boolean usuario = DAOFactory.getFactory().getUserDAO().authorize(cedula, clave, rol);
+		if (usuario==true) {
+			if(usuario==true && rol.equals("Admin")) {
+				HttpSession session = request.getSession();
+				session.setAttribute("usuario Logueado", usuario);
+				request.getRequestDispatcher("/MenuAdminController").forward(request, response);
+			}
+			else if (usuario==true && rol.equals("Teacher")) {
+				HttpSession session = request.getSession();
+				session.setAttribute("usuario Logueado", usuario);
+				request.getRequestDispatcher("/MenuTeacherController").forward(request, response);
+			}
+			else if (usuario==true && rol.equals("Student")) {
+				HttpSession session = request.getSession();
+				session.setAttribute("usuario Logueado", usuario);
+				request.getRequestDispatcher("/MenuStudentController").forward(request, response);
+			}
+		}else {
+			//String url = "/jsp/ViewAuthenticationInformation.jsp";
+			//request.getRequestDispatcher(url).forward(request, response); 
+			response.sendRedirect("jsp/ViewLogin.jsp");
+		}
 		
 		/*
-		if(usuario==true && rol.equals("Admin")) {
-			HttpSession session = request.getSession();
-			session.setAttribute("usuario Logueado", usuario);
-			request.getRequestDispatcher("/MenuAdminController").forward(request, response);
-		}
-		else if (usuario==true && rol.equals("Teacher")) {
-			HttpSession session = request.getSession();
-			session.setAttribute("usuario Logueado", usuario);
-			request.getRequestDispatcher("/MenuTeacherController").forward(request, response);
-		}
-		else if (usuario==true && rol.equals("Student")) {
-			HttpSession session = request.getSession();
-			session.setAttribute("usuario Logueado", usuario);
-			request.getRequestDispatcher("/MenuStudentController").forward(request, response);
-		}
-		else {
-			request.getRequestDispatcher("/LoginController").forward(request, response);
-		}*/
-		
-		
 		if(rol.equals("Administrative")) {
 			HttpSession session = request.getSession();
 			//session.setAttribute("usuario Logueado", usuario);
@@ -83,7 +88,7 @@ public class LoginController extends HttpServlet {
 		else {
 			// redirect again  to login not using Dispatcher
 			response.sendRedirect("jsp/ViewLogin.jsp");
-		}
+		}*/
 		
 		
 	}

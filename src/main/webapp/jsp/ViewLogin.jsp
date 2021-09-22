@@ -19,7 +19,7 @@
                         <div class="mb-3">
                             <label class="form-label" for="userType">User Type</label>
                             <select class="form-select custom-input text-white-50" name="userType" id="userType">
-                                <option value="Administrative">Administrative</option>
+                                <option value="Admin">Administrative</option>
                                 <option value="Student">Student</option>
                                 <option value="Teacher">Teacher</option>
                             </select>

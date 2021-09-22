@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,12 +23,12 @@
     </nav>
     <div class="container">
         <p class="fs-1">Update Information</p>
-        <form class="p-2 form" method="GET" action="#">
+        <form class="p-2 form" method="POST" action="ChangePasswordController">
         <div class="card login-form text-white">
                 <div class="mb-3" style="min-width: 100%;">
                     <label class="form-label" for="savedPassword">Saved Password</label>
                     <input style="min-width: 100%;" class="form-control custom-input text-white-50" type="password" id="savedPassword"
-                        name="savedPassword" />
+                        name="savedPassword" value="${clave}"/>
                 </div>
                 <div class="mb-3" style="min-width: 100%;">
                     <label class="form-label" for="newPassword">New Password</label>
@@ -52,7 +53,7 @@
         const cancelButton = document.getElementById('cancelButton');
         cancelButton.addEventListener('click', (e) => {
             e.preventDefault();
-            window.location.replace("./student.html");
+            window.location.replace("ViewAuthenticationInformationController");
         })
     </script>
 </body>

@@ -41,9 +41,6 @@ public class ListTeacherAvailableHoursController extends HttpServlet {
 	private void presentar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {	
 		Teacher t = DAOFactory.getFactory().getTeacherDAO().getByID(4);
 		List<Schedule> horarios =  t.getSchedule();
-		for(int i =0; i<horarios.size();i++) {
-			System.out.println(horarios.get(i).getDia()+ " "+horarios.get(i).getHoraInicio() + " " + horarios.get(i).getHoraFin());
-		}
 		request.setAttribute("horarios", horarios);
 		String url = "/jsp/ViewListAvailableSchedule.jsp";
 		request.getRequestDispatcher(url).forward(request, response);

@@ -48,7 +48,7 @@
 	<td>${horario.dia }</td>
 	<td>${horario.horaInicio   }</td>
 	<td>${ horario.horaFin}</td>
-	<td> <a href="ActualizarPersonasController?id=${persona.id}&&nombre=${persona.nombre}&&password=${persona.password}">Actualizar</a> | <a href="EliminarPersonasController?id=${persona.id}">Eliminar</a> </td>
+	<td> <a href="UpdateAvailableSchedule?id=${horario.idSchedule}">Actualizar</a> | <a href="DeleteAvailableScheduleController?id=${horario.idSchedule}">Eliminar</a> </td>
 </tr>
 </c:forEach>
         </table>

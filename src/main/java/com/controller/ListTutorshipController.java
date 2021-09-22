@@ -18,8 +18,7 @@ import com.model.entidades.Tutorship;
 @WebServlet("/ListTutorshipController")
 public class ListTutorshipController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
+       Integer id = 7;    /**
      * @see HttpServlet#HttpServlet()
      */
     public ListTutorshipController() {
@@ -44,10 +43,11 @@ public class ListTutorshipController extends HttpServlet {
 	}
 	
 	protected void presentar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		List<Tutorship> tutor = DAOFactory.getFactory().getStudentDAO().getTutorshipsById(1);
+		List<Tutorship> tutor = DAOFactory.getFactory().getStudentDAO().getTutorshipsById(id);
 		for (Tutorship tutorship : tutor) {
 		System.out.println("Id: " + tutorship.getIdTutorship() + "Profesor" + tutorship.getTeacher().getApellido() +
-				" Estudiante: " + tutorship.getStudent().getApellido());
+				" Estudiante: " + tutorship.getStudent().getApellido() + "hola" + tutorship.getSchedule().getDia() + tutorship.getSchedule().getHoraInicio() +
+				tutorship.getSchedule().getHoraFin());
 		}
 		request.setAttribute("tutor",tutor);
 		String url = "/jsp/ViewListTutorship.jsp";

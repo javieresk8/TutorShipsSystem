@@ -16,6 +16,7 @@ import com.model.entidades.Student;
 @WebServlet("/ViewAuthenticationInformationController")
 public class ViewAuthenticationInformationController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	Integer id = 7;
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -26,7 +27,7 @@ public class ViewAuthenticationInformationController extends HttpServlet {
     }
     
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Integer id = 7;
+		
 		Student informacion = DAOFactory.getFactory().getStudentDAO().getByID(id);
 
 		System.out.println("Id: " + informacion.getIdUsuario() +

@@ -51,9 +51,21 @@ public class Teacher extends User  implements Serializable{
 		this.departamento = departamento;
 		this.schedule = schedule;
 	}
+	
+	
 
 	
 	
+	
+
+
+	public Teacher(Integer idUsuario, String nombre, String apellido, String cedula, String rol, String clave) {
+		super(idUsuario, nombre, apellido, cedula, rol, clave);
+		// TODO Auto-generated constructor stub
+	}
+
+
+
 	//Getters and Setters
 	public int getIdTeacher() {
 		return idTeacher;

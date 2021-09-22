@@ -44,19 +44,10 @@
         <div class="tutorship-container">
         <c:forEach var="tutor" items="${tutor}" >
          <div class="tutorship-card">
-                <p>Teacher: ${tutor.getTeacher().getNombre()}</p>
-                <p>Date: Monday/25/09/2021</p>
+                <p>Teacher: ${tutor.getTeacher().getNombre()}  ${tutor.getTeacher().getApellido()}</p>
+                <p>Date: ${tutor.getSchedule().getDia()}  ${tutor.getSchedule().getHoraInicio()}   ${tutor.getSchedule().getHoraFin()}</p>
             </div>
         </c:forEach>
-           
-            <div class="tutorship-card">
-                <p>Teacher: Anderson Cardenas</p>
-                <p>Date: Monday/25/09/2021</p>
-            </div>
-            <div class="tutorship-card">
-                <p>Teacher: Anderson Cardenas</p>
-                <p>Date: Monday/25/09/2021</p>
-            </div>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"

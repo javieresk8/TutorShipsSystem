@@ -63,6 +63,18 @@ public abstract class User implements Serializable{
 	}
 	
 	
+	
+	
+	public User(Integer idUsuario, String nombre, String apellido, String cedula, String rol, String clave) {
+		super();
+		this.idUsuario = idUsuario;
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.cedula = cedula;
+		this.rol = rol;
+		this.clave = clave;
+	}
+
 	//Getters and Setters
 	public int getIdUsuario() {
 		return idUsuario;

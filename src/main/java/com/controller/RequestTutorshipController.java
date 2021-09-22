@@ -1,6 +1,7 @@
 package com.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -11,6 +12,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.model.dao.DAOFactory;
 import com.model.entidades.Schedule;
+import com.model.entidades.Student;
+import com.model.entidades.Teacher;
+import com.model.entidades.Tutorship;
+import com.model.entidades.User;
 
 /**
  * Servlet implementation class RequestTutorshipController
@@ -18,6 +23,8 @@ import com.model.entidades.Schedule;
 @WebServlet("/RequestTutorshipController")
 public class RequestTutorshipController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	Integer IdTeacher=4;
+	Integer  IdStudent= 7;
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -28,17 +35,41 @@ public class RequestTutorshipController extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		List<Schedule> sc = DAOFactory.getFactory().getTeacherDAO().getByID(4).getSchedule();
-		for (Schedule s : sc) {
-					System.out.println("Id: " + s.getIdSchedule() + " Dia: " + s.getDia() + s.getHoraInicio() + s.getHoraFin());	
-				}
-		request.setAttribute("horarios", sc);
+		List<Schedule> sc = DAOFactory.getFactory().getTeacherDAO().getByID(IdTeacher).getSchedule();
+		List<User> profesores = DAOFactory.getFactory().getUserDAO().getUsers();
+		 List<Teacher> arrayProfesores = new ArrayList<>();
+		
+		for (User s : profesores) {
+			
+			if(s.getRol().equals("Teacher")) {
+			arrayProfesores.add(new Teacher(s.getIdUsuario(), s.getNombre(),s.getApellido(),s.getCedula(),s.getRol(),s.getClave()));	
+		}
+		}
+		
+		for (Teacher u : arrayProfesores) {
+				System.out.println(u.getRol() + u.getNombre());	
+			}
+		request.setAttribute("sc", sc);
+		request.setAttribute("arrayProfesores", arrayProfesores);
 		presentar(request,response);
 	}
-
-
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		presentar(request, response);
+		Student informacion = DAOFactory.getFactory().getStudentDAO().getByID(IdStudent);
+		String id_teacher = request.getParameter("teacher");
+		String id_date = request.getParameter("date");
+		//Necesitamos tener el objeto student, schedule y teacher
+		//No hace validacion si ya esta ocupada la hora
+		Teacher t = DAOFactory.getFactory().getTeacherDAO().getByID(Integer.parseInt(id_teacher));
+		Student s = DAOFactory.getFactory().getStudentDAO().getByID(IdStudent);
+		Schedule sc = DAOFactory.getFactory().getScheduleDAO().getByID(Integer.parseInt(id_date));
+		Tutorship tutoria = new Tutorship();
+		tutoria.setSchedule(sc);
+		tutoria.setStudent(s);
+		tutoria.setTeacher(t);
+		DAOFactory.getFactory().getTutorshipDAO().create(tutoria);
+		String url = "ListTutorshipController";
+		request.getRequestDispatcher(url).forward(request, response);
 	}
 	
 	protected void presentar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

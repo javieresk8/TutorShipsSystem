@@ -13,6 +13,19 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <link rel="stylesheet" href="http://localhost:8080/FinalProject_AppWeb/jsp/assets/index.css" />
+   <script type="text/javascript">
+    
+    	
+    	function changeFunc() {
+
+    		var selectedValue = teacher.options[teacher.selectedIndex].value;
+    		var id_teacher = ${horarios.get};
+    	
+    		if(selectValue==id_teacher)
+    			alert(selectedValue);
+    		}
+    	
+    	</script>
 </head>
 
 <body class="text-white">
@@ -23,24 +36,26 @@
     </nav>
     <div class="container">
         <p class="fs-1">Add new tutorship</p>
-        <form class="p-2 form" method="POST" action="./new-tutorship-date.html">
+        <form class="p-2 form" method="POST" action="RequestTutorshipController">
             <div class="card login-form text-white">
                 <div style="display: flex; flex-direction: column; justify-content: space-between;">
+           
                     <div class="mb-3">
                         <label class="form-label" for="teacher">Select a Teacher</label>
-                        <select style="min-width: 100%;" class="form-select custom-input text-white-50" name="teacher" id="teacher">
-                            <option value="id_1">Teacher 1</option>
-                            <option value="id_2">Teacher 2</option>
-                            <option value="id_3">Teacher 3</option>
+                        <select style="min-width: 100%;" class="form-select custom-input text-white-50" name="teacher" id="teacher" onchange="changeFunc();">
+                        <c:forEach var="profesor" items="${arrayProfesores}">
+							<option value="${profesor.getIdUsuario()}">${profesor.getNombre()}  ${profesor.getApellido()} </option>
+            			</c:forEach>
                         </select>
                     </div>
                     <div class="mb-3">
                         <label class="form-label" for="date">Pick up a Date</label>
     
                         <select style="min-width: 100%;" class="form-select custom-input text-white-50" name="date" id="date">
-                        <c:forEach  items="${sc}" var="horarios">
-							<option value="${horarios.idSchedule}">${horarios.dia}</option>
-							<option value="id_3">Teacher 3</option>
+                        <c:forEach var="horarios" items="${sc}">
+                        <option value="${horarios.getIdSchedule()}">${horarios.getDia()}    ${horarios.getHoraInicio()} ${horarios.getHoraFin()}</option>
+							
+						
                             
             			</c:forEach>
                             
@@ -63,6 +78,7 @@
             window.location.replace("./list-tutorship.html");
         })
     </script>
+   
 </body>
 
 </html>

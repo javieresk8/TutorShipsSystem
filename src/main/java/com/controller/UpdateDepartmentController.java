@@ -39,16 +39,12 @@ public class UpdateDepartmentController extends HttpServlet {
 		dep.setIdDepartment(Integer.parseInt(idDepartamento)); //Ingresa  el id del objeto que quieres actualizar
 		DAOFactory.getFactory().getDapartmentDAO().update(dep);
 		
-		request.getRequestDispatcher("ListDepartmentController").forward(request, response);
-		//request.setAttribute("nombreDepartamento", nuevoNombreDepartamento);		
-		//String url = "ViewlistDepartment";	
-		//request.getRequestDispatcher(url).forward(request, response);
+		request.getRequestDispatcher("ListDepartmentController").forward(request, response);		
 	}
 	
 	private void presentar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String url = "/jsp/ViewUpdateDepartment.jsp";				
-		request.getRequestDispatcher(url).forward(request, response);
-		
+		request.getRequestDispatcher(url).forward(request, response);		
 	}
 
 }

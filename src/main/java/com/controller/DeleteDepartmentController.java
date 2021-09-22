@@ -7,6 +7,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.model.dao.DAOFactory;
+import com.model.entidades.Department;
+
 /**
  * Servlet implementation class DeleteDepartmentController
  */
@@ -22,20 +29,22 @@ public class DeleteDepartmentController extends HttpServlet {
         // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    	String idDepartamento = request.getParameter("idDepartamento");
+    	System.out.println(request.getParameter("idDepartamento"));
+		DAOFactory.getFactory().getDapartmentDAO().deleteByID(Integer.parseInt(idDepartamento));		
+		request.getRequestDispatcher("ListDepartmentController").forward(request, response);	
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		String idDepartamento = request.getParameter("idDepartamento");
+		System.out.println(request.getParameter("idDepartamento"));
+		DAOFactory.getFactory().getDapartmentDAO().deleteByID(Integer.parseInt(idDepartamento));
+		request.getRequestDispatcher("ListDepartmentController").forward(request, response);	
+	}
+	
+	private void presentar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.getRequestDispatcher("ListDepartmentController").forward(request, response);	
 	}
 
 }

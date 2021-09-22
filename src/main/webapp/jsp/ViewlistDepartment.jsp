@@ -54,7 +54,7 @@
             <c:forEach var="departamento" items="${departamentos}" >
 			<tr>
 			<td>${departamento.nombreDepartamento}</td>
-			<td> <a href="UpdateDepartmentController?idDepartamento=${departamento.idDepartment}">Actualizar</a> | <a href="EliminarPersonasController?id=${persona.id}">Eliminar</a> </td>
+			<td> <a href="UpdateDepartmentController?idDepartamento=${departamento.idDepartment}">Actualizar</a> | <a href="DeleteDepartmentController?idDepartamento=${departamento.idDepartment}">Eliminar</a> </td>
 			</tr>
 </c:forEach>
        </table>

@@ -47,16 +47,17 @@ public class UpdateUserController extends HttpServlet {
     	rol = request.getParameter("rol");
     	System.out.println("\nRol:"+rol+"\n");
     	User user = DAOFactory.getFactory().getUserDAO().getByID(Integer.parseInt(idUser));
-    	if(rol.equals("Teacher")) {
+    	List<Department> deptos = DAOFactory.getFactory().getDapartmentDAO().getDepartments(); 
+    	if(rol.equals("Teacher")) {    		   		    		
     		url = "/jsp/ViewUpdateTeacher.jsp";				    		   		 
     	}else if(rol.equalsIgnoreCase("Student")){
-    		System.out.println("Aquii");
+    		//System.out.println("Aquii");
     		url = "/jsp/ViewUpdateStudent.jsp";
     	}else {
-    		System.out.println("Allaa");
+    		//System.out.println("Allaa");
     		url = "/jsp/ViewUpdateAdministrator.jsp";	
     	}
-    	
+    	request.setAttribute("deptos", deptos);	
     	request.setAttribute("user", user);	
     	request.getRequestDispatcher(url).forward(request, response); 
 	}
@@ -91,6 +92,20 @@ public class UpdateUserController extends HttpServlet {
 			DAOFactory.getFactory().getUserDAO().update(st);			
 			request.getRequestDispatcher("ListUsersController").forward(request, response);	
 		}else {
+			int idDepart = Integer.parseInt(request.getParameter("department"));
+			Department department = DAOFactory.getFactory().getDapartmentDAO().getByID(idDepart);
+			//String departamento = request.getParameter("department");
+			System.out.println("\n----"+department.getIdDepartment()+"----"+department.getNombreDepartamento());
+			Teacher teacher = new Teacher();
+			teacher.setRol("Teacher");
+			teacher.setApellido(apellido);
+			teacher.setCedula(ci);
+			teacher.setClave(clave);
+			teacher.setNombre(nombre);
+			teacher.setDepartamento(department);
+			teacher.setIdUsuario(Integer.parseInt(idUser));				
+			DAOFactory.getFactory().getUserDAO().update(teacher);
+			
 			request.getRequestDispatcher("ListUsersController").forward(request, response);
 		}		
 	}

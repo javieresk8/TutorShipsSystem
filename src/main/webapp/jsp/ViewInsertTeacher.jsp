@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,7 +23,7 @@
     </nav>
     <div class="container">
         <p class="fs-1">Add new teacher</p>
-        <form class="p-2 form" method="GET" action="#">
+        <form class="p-2 form" method="POST" action="InsertTeacherController">
             <div class="card login-form text-white">
                 	        <div class="card login-form text-white">
             <div style="display: flex; justify-content: space-between;">
@@ -50,9 +51,9 @@
                 <div class="mb-3">
                     <label class="form-label" for="userType">Department</label>
                     <select style="min-width: 100%;" class="form-select custom-input text-white-50" name="department" id="department">
-                        <option value="Administrative">department 1</option>
-                        <option value="Student">department 1</option>
-                        <option value="pumpernickel">department 1</option>
+                     <c:forEach var="depto" items="${deptos}" >
+                        <option value="${depto.idDepartment}">${depto.nombreDepartamento}</option>               
+					</c:forEach>                        
                     </select>
                 </div>
             </div>

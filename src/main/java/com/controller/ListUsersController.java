@@ -37,13 +37,13 @@ public class ListUsersController extends HttpServlet {
 	}
 	private void presentar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		List<User> users = DAOFactory.getFactory().getUserDAO().getUsers();
-		for(User d: users) {
+		/*for(User d: users) {
 			System.out.println("Id: " + d.getIdUsuario() +
 		" rol: "+ d.getRol()+ 
 		" apellido: " + d.getApellido() +
 		" cedula: " + d.getCedula() + 
 		" nombre: " + d.getNombre());	
-		}
+		}*/
 		request.setAttribute("users", users);
 		String url = "/jsp/ViewListUser.jsp";				
 		request.getRequestDispatcher(url).forward(request, response);		

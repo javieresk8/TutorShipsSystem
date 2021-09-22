@@ -33,7 +33,6 @@ public class DeleteAvailableScheduleController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		idSchedule = request.getParameter("id");
-		
 	DAOFactory.getFactory().getScheduleDAO().deleteByID(Integer.parseInt(idSchedule));
 
 		presentar(request, response);
@@ -43,12 +42,14 @@ public class DeleteAvailableScheduleController extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		idSchedule = request.getParameter("id");
+		DAOFactory.getFactory().getScheduleDAO().deleteByID(Integer.parseInt(idSchedule));
+
+			presentar(request, response);
 	}
 	
 	private void presentar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String url = "/jsp/ViewListTeacherAvailableHours.jsp";				
+		String url = "ListTeacherAvailableHoursController";				
 		request.getRequestDispatcher(url).forward(request, response);
 		
 	}

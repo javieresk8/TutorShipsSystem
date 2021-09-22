@@ -37,7 +37,7 @@ public class InsertDepartmentController extends HttpServlet {
 		d.setNombreDepartamento(nombre);
 		DAOFactory.getFactory().getDapartmentDAO().create(d);
 		request.getRequestDispatcher("ListDepartmentController").forward(request, response);
-		//presentar(request, response);
+		
 	}
 	
 	private void presentar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

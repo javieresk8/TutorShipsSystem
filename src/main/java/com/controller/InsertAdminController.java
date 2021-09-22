@@ -7,6 +7,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.model.dao.DAOFactory;
+import com.model.entidades.Admin;
+import com.model.entidades.Department;
+import com.model.entidades.User;
+
 /**
  * Servlet implementation class InsertAdminController
  */
@@ -29,7 +34,22 @@ public class InsertAdminController extends HttpServlet {
 
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	presentar(request, response);
+		String nombre = request.getParameter("name");
+		String apellido = request.getParameter("lastname");
+		String ci = request.getParameter("identityNumber");	
+		String password = request.getParameter("password");
+		
+		
+		User ad2 = new Admin();
+		ad2.setApellido(apellido);
+		ad2.setCedula(ci);
+		ad2.setClave(password);
+		ad2.setNombre(nombre);
+		DAOFactory.getFactory().getUserDAO().create(ad2);
+		//System.out.println("Se inserto:" + ad2.toString());
+		
+		request.getRequestDispatcher("ListUsersController").forward(request, response);
+		//presentar(request, response);
 	}
 	private void presentar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {	
 		String url = "/jsp/ViewInsertAdministrator.jsp";

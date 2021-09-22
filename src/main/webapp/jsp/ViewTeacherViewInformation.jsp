@@ -65,7 +65,7 @@
         const cancelButton = document.getElementById('cancelButton');
         cancelButton.addEventListener('click', (e) => {
             e.preventDefault();
-            window.location.replace("ViewTeacherInformation");
+            window.location.replace("MenuTeacherController");
         })
     </script>
 </body>

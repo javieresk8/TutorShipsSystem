@@ -75,7 +75,7 @@
         const cancelButton = document.getElementById('cancelButton');
         cancelButton.addEventListener('click', (e) => {
             e.preventDefault();
-            window.location.replace("./list-tutorship.html");
+            window.location.replace("ListTutorshipController");
         })
     </script>
    

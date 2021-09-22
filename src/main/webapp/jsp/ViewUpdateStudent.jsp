@@ -23,29 +23,29 @@
     </nav>
     <div class="container">
         <p class="fs-1">Update student</p>
-        <form class="p-2 form" method="POST" action="InsertStudentController">
+        <form class="p-2 form" method="POST" action="UpdateUserController">
         <div class="card login-form text-white">
             <div style="display: flex; justify-content: space-between;">
                 <div class="mb-3">
                     <label class="form-label" for="identityNumber">Name</label>
                     <input class="form-control custom-input text-white-50" type="text" id="name"
-                        name="name" />
+                        name="name" value="${ user.getNombre()}"/>
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="identityNumber">Last name</label>
                     <input class="form-control custom-input text-white-50" type="text" id="lastname"
-                        name="lastname"/>
+                        name="lastname" value="${ user.getApellido() }"/>
                 </div>
             </div>
             <div>
                     <label class="form-label" for="identityNumber">C.I</label>
                     <input style="min-width: 100%;" class="form-control custom-input text-white-50" type="text" id="identityNumber"
-                        name="identityNumber" />
+                        name="identityNumber" value="${ user.getCedula() }"/>
             </div>
                 <div class="mb-3" style="min-width: 100%; margin-top:20px;">
                     <label class="form-label" for="password">Password</label>
                     <input style="min-width: 100%;" class="form-control custom-input text-white-50" type="password" id="password"
-                        name="password" />
+                        name="password" value="${ user.getClave() }"/>
                 </div>
             </div>
             <div class="actions-container" style="margin-top: 50px; display: flex; justify-content: center; gap: 50px;">

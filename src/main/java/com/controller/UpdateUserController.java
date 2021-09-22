@@ -80,8 +80,18 @@ public class UpdateUserController extends HttpServlet {
 			ad2.setIdUsuario(Integer.parseInt(idUser));
 			DAOFactory.getFactory().getUserDAO().update(ad2);			
 			request.getRequestDispatcher("ListUsersController").forward(request, response);
+		}else if(rol.equals("Student")) {
+			User st = new Student();
+			st.setApellido(apellido);
+			st.setRol("Student");
+			st.setCedula(ci);
+			st.setClave(clave);
+			st.setNombre(nombre); 
+			st.setIdUsuario(Integer.parseInt(idUser));
+			DAOFactory.getFactory().getUserDAO().update(st);			
+			request.getRequestDispatcher("ListUsersController").forward(request, response);	
 		}else {
-			request.getRequestDispatcher("ListDepartmentController").forward(request, response);	
+			request.getRequestDispatcher("ListUsersController").forward(request, response);
 		}		
 	}
 }

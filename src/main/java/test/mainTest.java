@@ -274,8 +274,8 @@ public class mainTest {
 //		List<Schedule> sc = DAOFactory.getFactory().getTeacherDAO().getByID(8).getSchedule();
 //		
 //		for (Schedule s : sc) {
-//			System.out.println("Id: " + s.getIdSchedule() + " Dia: " + s.getDia());	
-//		}
+	//		System.out.println("Id: " + s.getIdSchedule() + " Dia: " + s.getDia() + s.getHoraInicio() + s.getHoraFin());	
+		//}
 		
 		//===============Caso de uso Solicitar Tutoria (Student)===============
 //		//Necesitamos tener el objeto student, schedule y teacher

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,7 +23,7 @@
     </nav>
     <div class="container">
         <p class="fs-1">Add new tutorship</p>
-        <form class="p-2 form" method="GET" action="./new-tutorship-date.html">
+        <form class="p-2 form" method="POST" action="./new-tutorship-date.html">
             <div class="card login-form text-white">
                 <div style="display: flex; flex-direction: column; justify-content: space-between;">
                     <div class="mb-3">
@@ -35,10 +36,14 @@
                     </div>
                     <div class="mb-3">
                         <label class="form-label" for="date">Pick up a Date</label>
+    
                         <select style="min-width: 100%;" class="form-select custom-input text-white-50" name="date" id="date">
-                            <option value="id_1">date 1</option>
-                            <option value="id_2">date 2</option>
-                            <option value="id_3">date 3</option>
+                        <c:forEach  items="${sc}" var="horarios">
+							<option value="${horarios.idSchedule}">${horarios.dia}</option>
+							<option value="id_3">Teacher 3</option>
+                            
+            			</c:forEach>
+                            
                         </select>
                     </div>
                 </div>

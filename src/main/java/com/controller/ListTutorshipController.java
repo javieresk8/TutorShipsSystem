@@ -1,11 +1,16 @@
 package com.controller;
 
 import java.io.IOException;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.model.dao.DAOFactory;
+import com.model.entidades.Tutorship;
 
 /**
  * Servlet implementation class ListTutorshipController
@@ -26,8 +31,8 @@ public class ListTutorshipController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		presentar(request, response);
+	
 	}
 
 	/**
@@ -39,6 +44,12 @@ public class ListTutorshipController extends HttpServlet {
 	}
 	
 	protected void presentar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		List<Tutorship> tutor = DAOFactory.getFactory().getStudentDAO().getTutorshipsById(1);
+		for (Tutorship tutorship : tutor) {
+		System.out.println("Id: " + tutorship.getIdTutorship() + "Profesor" + tutorship.getTeacher().getApellido() +
+				" Estudiante: " + tutorship.getStudent().getApellido());
+		}
+		request.setAttribute("tutor",tutor);
 		String url = "/jsp/ViewListTutorship.jsp";
 		request.getRequestDispatcher(url).forward(request, response);
 	}

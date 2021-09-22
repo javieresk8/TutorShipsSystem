@@ -37,7 +37,6 @@ public class ViewTeacherInformation extends HttpServlet {
 		request.setAttribute("apellido" , apellido);
 		request.setAttribute("cedula" , cedula);
 		request.setAttribute("departamentos", departamentos);
-
 		presentar(request,response);
 
 	}
